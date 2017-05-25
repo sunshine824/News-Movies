@@ -61,7 +61,7 @@
             data:{
               userName:this.userName,
               passwd:this.passwd,
-              passCheck:this.passCheck
+              passwdCheck:this.passwdCheck
             }
           }).then((result)=>{
             console.log(result.data)
