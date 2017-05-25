@@ -64,7 +64,7 @@
               passwdCheck:this.passwdCheck
             }
           }).then((result)=>{
-            console.log(result.data)
+            //console.log(result.data)
             if(result.data.status==1){
               this.msg=result.data.msg;
               //初始化
@@ -168,7 +168,10 @@
   }
   @media screen and (max-width: 640px){
     .bg .logo{
-      padding: 2rem 0 2rem 0;
+      padding: 2rem 0 1.8rem 0;
+    }
+    .bg .enter{
+      margin-top: .8rem;
     }
   }
   .err-msg{

@@ -72,6 +72,10 @@ router.post('/api/login',(req,res)=>{
         jsonInfo.status=1;
         jsonInfo.msg='登录成功';
         res.json(jsonInfo)
+      }else{
+        jsonInfo.status=0;
+        jsonInfo.msg='密码不正确';
+        res.json(jsonInfo)
       }
     })
     .catch((e)=>{
