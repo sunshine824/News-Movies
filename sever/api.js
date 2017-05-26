@@ -40,7 +40,7 @@ router.post('/api/register',(req,res)=>{
           signInfo.create(userInfo)
             .then((data)=>{
               jsonInfo.status=1;
-              jsonInfo.msg='注册成功';
+              jsonInfo.msg='注册成功，请先登录';
               res.json(jsonInfo)
             })
         }
@@ -71,6 +71,7 @@ router.post('/api/login',(req,res)=>{
       if(result[0].passwd==passwd){
         jsonInfo.status=1;
         jsonInfo.msg='登录成功';
+        jsonInfo.url='http://localhost:8081/#/news'
         res.json(jsonInfo)
       }else{
         jsonInfo.status=0;

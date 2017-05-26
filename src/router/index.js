@@ -18,6 +18,11 @@ const routes=[
       "sign": resolve => require(["../components/sign/register.vue"], resolve)
     }
   },
+  {
+    path: '/news',
+    name: "新闻",
+    component: resolve => require(["../components/news/news.vue"], resolve)
+  },
 ]
 
 export default new Router({

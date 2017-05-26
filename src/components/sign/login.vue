@@ -59,6 +59,7 @@
             console.log(result.data)
             if(result.data.status==1){
 
+              window.location.href=result.data.url
               //初始化
               this.userName=''
               this.passwd=''
@@ -129,12 +130,13 @@
       width: 3.3rem;
       height: 0.7rem;
       background: #705d76;
-      border-radius: 15px;
+      border-radius: 30px;
       margin: 0.6rem auto 0.2rem auto;
       color: #fff;
       border: none;
       font-size: 0.3rem;
       outline: none;
+      display: block;
     }
     .forget{
       font-size: 0.24rem;
