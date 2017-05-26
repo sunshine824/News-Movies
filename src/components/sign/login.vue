@@ -83,6 +83,8 @@
     background: #85d2c5;
     width: 100vw;
     height: 100vh;
+    position: absolute;
+    z-index: 999;
     .register{
       font-size: 0.3rem;
       color: #fff;

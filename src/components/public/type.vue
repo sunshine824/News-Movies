@@ -1,18 +1,15 @@
 <template>
-  <div class="type">
-    <ul>
-      <li>娱乐</li>
-      <li>体育</li>
-      <li>军事</li>
-      <li>美女</li>
-      <li>娱乐</li>
-      <li>美食</li>
-      <li>科技</li>
-    </ul>
-  </div>
+  <li>{{item}}</li>
 </template>
 <script>
+  export default {
+    props:["item"],
+    data(){
+      return {
 
+      }
+    }
+  }
 </script>
 <style lang="less">
   .type{

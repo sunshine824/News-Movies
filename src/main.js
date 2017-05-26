@@ -7,6 +7,7 @@ import iView from 'iview';
 //import VueResource from 'vue-resource'
 import axios from 'axios';
 import 'iview/dist/styles/iview.css';    // 使用 CSS
+import store from './vuex/store';
 
 Vue.prototype.$ajax = axios
 
@@ -19,6 +20,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })

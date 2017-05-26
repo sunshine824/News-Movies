@@ -1,6 +1,10 @@
 <template>
   <div class="news">
-    <typeList></typeList>
+    <div class="type">
+      <ul>
+        <typeList v-for="(item,index) in $store.state.newInfo.newsType" :item="item" :key="index"></typeList>
+      </ul>
+    </div>
     <carousel></carousel>
     <newsItem></newsItem>
   </div>
@@ -26,6 +30,7 @@
   .news{
     display: flex;
     flex-direction: column;
+    margin-bottom: 1rem;
   }
   .news-head{
     height: 0.9rem;
@@ -33,6 +38,7 @@
     width: 100%;
     color:#fff;
     position: relative;
+    z-index:888;
     .back{
       font-size: 0.3rem;
       line-height: 0.9rem;

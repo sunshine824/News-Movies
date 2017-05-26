@@ -1,6 +1,78 @@
 <template>
   <div class="news-list">
-    <router-link tag="a" to="/news-detail" class="a-link">
+    <router-link tag="a" to="/news/news-detail" class="a-link" v-for="(item,index) in newsMsg" :key="item.id">
+      <div class="news-text" @click="test">
+        <strong>{{item.text}}</strong>
+        <div class="info">
+          <span class="date">{{item.date}}</span>
+          <span class="read">{{item.readCount}}</span>
+        </div>
+      </div>
+      <p class="news-img">
+        <img src="../../assets/images/junjian.jpg">
+      </p>
+    </router-link>
+<!--    <router-link tag="a" to="/news/news-detail" class="a-link">
+      <div class="news-text">
+        <strong>韩国拟对朝鲜实行“军硬民软”双轨战略，南北关</strong>
+        <div class="info">
+          <span class="date">1小时前</span>
+          <span class="read">100</span>
+        </div>
+      </div>
+      <p class="news-img">
+        <img src="../../assets/images/junjian.jpg">
+      </p>
+    </router-link>
+    <router-link tag="a" to="/news/news-detail" class="a-link">
+      <div class="news-text">
+        <strong>韩国拟对朝鲜实行“军硬民软”双轨战略，南北关</strong>
+        <div class="info">
+          <span class="date">1小时前</span>
+          <span class="read">100</span>
+        </div>
+      </div>
+      <p class="news-img">
+        <img src="../../assets/images/junjian.jpg">
+      </p>
+    </router-link>
+    <router-link tag="a" to="/news/news-detail" class="a-link">
+      <div class="news-text">
+        <strong>韩国拟对朝鲜实行“军硬民软”双轨战略，南北关</strong>
+        <div class="info">
+          <span class="date">1小时前</span>
+          <span class="read">100</span>
+        </div>
+      </div>
+      <p class="news-img">
+        <img src="../../assets/images/junjian.jpg">
+      </p>
+    </router-link>
+    <router-link tag="a" to="/news/news-detail" class="a-link">
+      <div class="news-text">
+        <strong>韩国拟对朝鲜实行“军硬民软”双轨战略，南北关</strong>
+        <div class="info">
+          <span class="date">1小时前</span>
+          <span class="read">100</span>
+        </div>
+      </div>
+      <p class="news-img">
+        <img src="../../assets/images/junjian.jpg">
+      </p>
+    </router-link>
+    <router-link tag="a" to="/news/news-detail" class="a-link">
+      <div class="news-text">
+        <strong>韩国拟对朝鲜实行“军硬民软”双轨战略，南北关</strong>
+        <div class="info">
+          <span class="date">1小时前</span>
+          <span class="read">100</span>
+        </div>
+      </div>
+      <p class="news-img">
+        <img src="../../assets/images/junjian.jpg">
+      </p>
+    </router-link>
+    <router-link tag="a" to="/news/news-detail" class="a-link">
       <div class="news-text">
         <strong>韩国拟对朝鲜实行“军硬民软”双轨战略，南北关</strong>
         <div class="info">
@@ -23,83 +95,27 @@
       <p class="news-img">
         <img src="../../assets/images/junjian.jpg">
       </p>
-    </router-link>
-    <router-link tag="a" to="/news-detail" class="a-link">
-      <div class="news-text">
-        <strong>韩国拟对朝鲜实行“军硬民软”双轨战略，南北关</strong>
-        <div class="info">
-          <span class="date">1小时前</span>
-          <span class="read">100</span>
-        </div>
-      </div>
-      <p class="news-img">
-        <img src="../../assets/images/junjian.jpg">
-      </p>
-    </router-link>
-    <router-link tag="a" to="/news-detail" class="a-link">
-      <div class="news-text">
-        <strong>韩国拟对朝鲜实行“军硬民软”双轨战略，南北关</strong>
-        <div class="info">
-          <span class="date">1小时前</span>
-          <span class="read">100</span>
-        </div>
-      </div>
-      <p class="news-img">
-        <img src="../../assets/images/junjian.jpg">
-      </p>
-    </router-link>
-    <router-link tag="a" to="/news-detail" class="a-link">
-      <div class="news-text">
-        <strong>韩国拟对朝鲜实行“军硬民软”双轨战略，南北关</strong>
-        <div class="info">
-          <span class="date">1小时前</span>
-          <span class="read">100</span>
-        </div>
-      </div>
-      <p class="news-img">
-        <img src="../../assets/images/junjian.jpg">
-      </p>
-    </router-link>
-    <router-link tag="a" to="/news-detail" class="a-link">
-      <div class="news-text">
-        <strong>韩国拟对朝鲜实行“军硬民软”双轨战略，南北关</strong>
-        <div class="info">
-          <span class="date">1小时前</span>
-          <span class="read">100</span>
-        </div>
-      </div>
-      <p class="news-img">
-        <img src="../../assets/images/junjian.jpg">
-      </p>
-    </router-link>
-    <router-link tag="a" to="/news-detail" class="a-link">
-      <div class="news-text">
-        <strong>韩国拟对朝鲜实行“军硬民软”双轨战略，南北关</strong>
-        <div class="info">
-          <span class="date">1小时前</span>
-          <span class="read">100</span>
-        </div>
-      </div>
-      <p class="news-img">
-        <img src="../../assets/images/junjian.jpg">
-      </p>
-    </router-link>
-    <router-link tag="a" to="/news-detail" class="a-link">
-      <div class="news-text">
-        <strong>韩国拟对朝鲜实行“军硬民软”双轨战略，南北关</strong>
-        <div class="info">
-          <span class="date">1小时前</span>
-          <span class="read">100</span>
-        </div>
-      </div>
-      <p class="news-img">
-        <img src="../../assets/images/junjian.jpg">
-      </p>
-    </router-link>
+    </router-link>-->
   </div>
 </template>
 <script>
+ export default {
+   data(){
+    return {
 
+    }
+  },
+  methods:{
+    test(){
+      this.$store.dispatch("myTest")
+    }
+  },
+   computed:{
+     newsMsg(){
+       return this.$store.state.newInfo.newsMsg
+     }
+   }
+ }
 </script>
 <style lang="less">
   .news-list{
