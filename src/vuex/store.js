@@ -4,12 +4,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import mutations from './mutations'
-import action from './action'
+import actions from './actions'
 import axios from 'axios'
 
 Vue.use(Vuex)
 
 const state={
+  count:0,
   newInfo:{
     newsType:['娱乐','体育','军事','美女','娱乐','美食','科技'],
     newsMsg:[
@@ -61,7 +62,7 @@ const state={
 }
 
 export default new Vuex.Store({
-  mutations,
   state,
-  action
+  mutations,
+  actions
 })

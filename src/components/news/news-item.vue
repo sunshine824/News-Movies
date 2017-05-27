@@ -1,7 +1,7 @@
 <template>
   <div class="news-list">
-    <router-link tag="a" to="/news/news-detail" class="a-link" v-for="(item,index) in newsMsg" :key="item.id">
-      <div class="news-text" @click="test">
+    <router-link tag="a" to="/news/news-detail" class="a-link" v-for="(item,index) in newsMsg" :key="item.id" @click.native="test()">
+      <div class="news-text">
         <strong>{{item.text}}</strong>
         <div class="info">
           <span class="date">{{item.date}}</span>
@@ -12,94 +12,13 @@
         <img src="../../assets/images/junjian.jpg">
       </p>
     </router-link>
-<!--    <router-link tag="a" to="/news/news-detail" class="a-link">
-      <div class="news-text">
-        <strong>韩国拟对朝鲜实行“军硬民软”双轨战略，南北关</strong>
-        <div class="info">
-          <span class="date">1小时前</span>
-          <span class="read">100</span>
-        </div>
-      </div>
-      <p class="news-img">
-        <img src="../../assets/images/junjian.jpg">
-      </p>
-    </router-link>
-    <router-link tag="a" to="/news/news-detail" class="a-link">
-      <div class="news-text">
-        <strong>韩国拟对朝鲜实行“军硬民软”双轨战略，南北关</strong>
-        <div class="info">
-          <span class="date">1小时前</span>
-          <span class="read">100</span>
-        </div>
-      </div>
-      <p class="news-img">
-        <img src="../../assets/images/junjian.jpg">
-      </p>
-    </router-link>
-    <router-link tag="a" to="/news/news-detail" class="a-link">
-      <div class="news-text">
-        <strong>韩国拟对朝鲜实行“军硬民软”双轨战略，南北关</strong>
-        <div class="info">
-          <span class="date">1小时前</span>
-          <span class="read">100</span>
-        </div>
-      </div>
-      <p class="news-img">
-        <img src="../../assets/images/junjian.jpg">
-      </p>
-    </router-link>
-    <router-link tag="a" to="/news/news-detail" class="a-link">
-      <div class="news-text">
-        <strong>韩国拟对朝鲜实行“军硬民软”双轨战略，南北关</strong>
-        <div class="info">
-          <span class="date">1小时前</span>
-          <span class="read">100</span>
-        </div>
-      </div>
-      <p class="news-img">
-        <img src="../../assets/images/junjian.jpg">
-      </p>
-    </router-link>
-    <router-link tag="a" to="/news/news-detail" class="a-link">
-      <div class="news-text">
-        <strong>韩国拟对朝鲜实行“军硬民软”双轨战略，南北关</strong>
-        <div class="info">
-          <span class="date">1小时前</span>
-          <span class="read">100</span>
-        </div>
-      </div>
-      <p class="news-img">
-        <img src="../../assets/images/junjian.jpg">
-      </p>
-    </router-link>
-    <router-link tag="a" to="/news/news-detail" class="a-link">
-      <div class="news-text">
-        <strong>韩国拟对朝鲜实行“军硬民软”双轨战略，南北关</strong>
-        <div class="info">
-          <span class="date">1小时前</span>
-          <span class="read">100</span>
-        </div>
-      </div>
-      <p class="news-img">
-        <img src="../../assets/images/junjian.jpg">
-      </p>
-    </router-link>
-    <router-link tag="a" to="/news-detail" class="a-link">
-      <div class="news-text">
-        <strong>韩国拟对朝鲜实行“军硬民软”双轨战略，南北关</strong>
-        <div class="info">
-          <span class="date">1小时前</span>
-          <span class="read">100</span>
-        </div>
-      </div>
-      <p class="news-img">
-        <img src="../../assets/images/junjian.jpg">
-      </p>
-    </router-link>-->
   </div>
 </template>
 <script>
- export default {
+
+  import {mapActions} from 'vuex'
+
+  export default {
    data(){
     return {
 
@@ -107,7 +26,7 @@
   },
   methods:{
     test(){
-      this.$store.dispatch("myTest")
+      this.$store.dispatch("test")
     }
   },
    computed:{

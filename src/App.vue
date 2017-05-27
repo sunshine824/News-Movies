@@ -11,18 +11,10 @@
     <router-view></router-view>
     <div class="tabBar">
       <ul>
-        <li>
-          <span class="iconfont icon-xinwen1"></span>
-          <span class="text">新闻</span>
-        </li>
-        <li>
-          <span class="iconfont icon-dianying"></span>
-          <span>电影</span>
-        </li>
-        <li>
-          <span class="iconfont icon-shezhi"></span>
-          <span>设置</span>
-        </li>
+        <router-link tag="li" :to="item.url" v-for="(item,index) in tabs" :key="index" @click.native="toggle(index)" :class="{active:active===index}">
+          <span class="iconfont" :class="item.class"></span>
+          <span class="text">{{item.type}}</span>
+        </router-link>
       </ul>
     </div>
   </div>
@@ -34,8 +26,25 @@ export default {
   data(){
     return {
       isBack:false,
-      pageName:''
-
+      pageName:'',
+      active:0,
+      tabs:[
+        {
+          class:'icon-xinwen1',
+          type:"新闻",
+          url:"/news"
+        },
+        {
+          class:'icon-dianying',
+          type:"电影",
+          url:'movies'
+        },
+        {
+          class:'icon-shezhi',
+          type:"设置",
+          url:'/setting'
+        }
+      ]
     }
   },
   //监听$route切换pageName
@@ -52,7 +61,9 @@ export default {
     }
   },
   methods:{
-
+    toggle(index){
+      this.active=index
+    }
   }
 }
 </script>
@@ -72,7 +83,8 @@ export default {
   bottom: 0;
   width: 100vw;
   height: 1rem;
-  background: #277de2;
+  background: #fff;
+  border-top:1px solid #666;
   ul{
     li{
       float: left;
@@ -81,11 +93,16 @@ export default {
       span{
         display: block;
         font-size: 0.25rem;
-        color:#fff;
+        color:#666;
         &.iconfont{
           font-size: 0.4rem;
         }
       }
+      &.active{
+        span{
+          color: #277de2;
+        }
+       }
     }
   }
 }

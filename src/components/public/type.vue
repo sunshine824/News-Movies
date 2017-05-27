@@ -15,6 +15,11 @@
   .type{
     padding: 0.2rem 0.3rem;
     border-bottom: 1px solid #999;
+    position: sticky!important;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    background:#f2f7fc;
     ul{
       display: -webkit-box;
       display: box;
