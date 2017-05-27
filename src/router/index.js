@@ -28,6 +28,16 @@ const routes=[
     name: "新闻",
     component: resolve => require(["../components/news/news-detail.vue"], resolve)
   },
+  {
+    path: '/movies',
+    name: "电影",
+    component: resolve => require(["../components/movies/movies.vue"], resolve)
+  },
+  {
+    path: '/setting',
+    name: "设置",
+    component: resolve => require(["../components/setting/setting.vue"], resolve)
+  },
 ]
 
 export default new Router({

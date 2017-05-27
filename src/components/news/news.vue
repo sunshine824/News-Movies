@@ -31,6 +31,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
+    background: #f2f7fc;
   }
   .news-head{
     height: 0.9rem;
