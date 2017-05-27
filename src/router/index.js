@@ -23,6 +23,11 @@ const routes=[
     name: "新闻",
     component: resolve => require(["../components/news/news.vue"], resolve)
   },
+  {
+    path: '/news/news-details',
+    name: "新闻",
+    component: resolve => require(["../components/news/news-detail.vue"], resolve)
+  },
 ]
 
 export default new Router({

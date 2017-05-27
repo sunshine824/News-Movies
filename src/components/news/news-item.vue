@@ -1,6 +1,6 @@
 <template>
   <div class="news-list">
-    <router-link tag="a" to="/news/news-detail" class="a-link" v-for="(item,index) in newsMsg" :key="item.id" @click.native="test()">
+    <router-link tag="a" :to="{path:'/news/news-details',query:{id:item.id,item:item}}" class="a-link" v-for="(item,index) in newsMsg" :key="item.id">
       <div class="news-text">
         <strong>{{item.text}}</strong>
         <div class="info">
@@ -25,9 +25,7 @@
     }
   },
   methods:{
-    test(){
-      this.$store.dispatch("test")
-    }
+
   },
    computed:{
      newsMsg(){
@@ -51,7 +49,8 @@
   .news-text{
     float: left;
     width: 60%;
-    padding-right:0.1rem;
+    padding-right:0.3rem;
+    text-align: justify;
     strong{
       font-size: 0.3rem;
       font-weight: normal;
