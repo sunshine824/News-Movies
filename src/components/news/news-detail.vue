@@ -197,7 +197,7 @@
         outline: none;
         height: .55rem;
         border-radius: .1rem;
-        font-size: .2rem;
+        font-size: .25rem;
         padding-left: .2rem;
       }
       .icon-xiaolian{
@@ -244,8 +244,11 @@
              border-bottom: 1px solid #e5e5e5;
              margin: auto;
            }
-          p.head-img img{
+          p.head-img{
+            width: 15%;
             float: left;
+          }
+          p.head-img img{
             border-radius: 50%;
             width: .8rem;
             height: .8rem;
@@ -254,7 +257,7 @@
           .comment-info{
             float: left;
             margin-left:0.3rem;
-            width:60%;
+            width:50%;
             .name{
               font-size: 0.25rem;
               margin-bottom: .15rem;
@@ -275,6 +278,8 @@
             float: right;
             color: #666;
             font-size: 0.25rem;
+            width:25%;
+            text-align: right;
             .like{
               display: inline-block;
               font-size: 0.25rem;
@@ -288,5 +293,10 @@
         }
       }
     }
+  }
+  @media screen and (max-width: 640px){
+      .comment-list .comment-info .text{
+        font-size: 0.26rem !important;
+      }
   }
 </style>

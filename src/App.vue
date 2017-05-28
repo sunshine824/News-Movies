@@ -76,7 +76,6 @@ export default {
   color: #2c3e50;
   background: #fff;
   width: 100vw;
-  height: 100vh;
 }
 .tabBar{
   position: fixed;
