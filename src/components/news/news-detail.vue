@@ -16,7 +16,7 @@
     <div class="like-share">
       <p class="like">
         <span class="iconfont icon-dianzan"></span>
-        <span class="like-count">100</span>
+        <span class="like-count">{{item.like}}</span>
       </p>
       <p class="share">
         <span class="iconfont icon-weixin" style="color: #00cd0c"></span>
@@ -25,94 +25,26 @@
       </p>
     </div>
     <div class="input-group">
-      <input type="text" placeholder="您想说点什么" class="input-text">
+      <input type="text" placeholder="您想说点什么" class="input-text" v-model="commenText">
       <span class="iconfont icon-xiaolian"></span>
       <span class="btn">发表</span>
     </div>
     <div class="comment">
       <span class="comment-title">全部评论</span>
       <ul class="comment-list">
-        <li>
+        <li v-for="(item,index) in item.comment" :key="index">
           <p class="head-img">
             <img src="../../assets/images/head.jpg"/>
           </p>
           <div class="comment-info">
-            <p class="name">阳晨夕下</p>
-            <p class="date">两小时前</p>
-            <p class="text">中国强大，为中国感到自豪...</p>
+            <p class="name">{{item.name}}</p>
+            <p class="date">{{item.commentDate}}</p>
+            <p class="text">{{item.commentText}}</p>
           </div>
           <div class="other-like">
             <p class="like">
               <span class="iconfont icon-dianzan"></span>
-              <span>10</span>
-            </p>
-            <span class="iconfont icon-unie644"></span>
-          </div>
-        </li>
-        <li>
-          <p class="head-img">
-            <img src="../../assets/images/head.jpg"/>
-          </p>
-          <div class="comment-info">
-            <p class="name">阳晨夕下</p>
-            <p class="date">两小时前</p>
-            <p class="text">中国强大，为中国感到自豪...</p>
-          </div>
-          <div class="other-like">
-            <p class="like">
-              <span class="iconfont icon-dianzan"></span>
-              <span>10</span>
-            </p>
-            <span class="iconfont icon-unie644"></span>
-          </div>
-        </li>
-        <li>
-          <p class="head-img">
-            <img src="../../assets/images/head.jpg"/>
-          </p>
-          <div class="comment-info">
-            <p class="name">阳晨夕下</p>
-            <p class="date">两小时前</p>
-            <p class="text">中国强大，为中国感到自豪...</p>
-          </div>
-          <div class="other-like">
-            <p class="like">
-              <span class="iconfont icon-dianzan"></span>
-              <span>10</span>
-            </p>
-            <span class="iconfont icon-unie644"></span>
-          </div>
-        </li>
-        <li>
-          <p class="head-img">
-            <img src="../../assets/images/head.jpg"/>
-          </p>
-          <div class="comment-info">
-            <p class="name">阳晨夕下</p>
-            <p class="date">两小时前</p>
-            <p class="text">中国强大，为中国感到自豪...</p>
-          </div>
-          <div class="other-like">
-            <p class="like">
-              <span class="iconfont icon-dianzan"></span>
-              <span>10</span>
-            </p>
-            <span class="iconfont icon-unie644"></span>
-          </div>
-        </li>
-        <li>
-          <p class="head-img">
-            <img src="../../assets/images/head.jpg"/>
-          </p>
-          <div class="comment-info">
-            <p class="name">阳晨夕下</p>
-            <p class="date">两小时前</p>
-            <p class="text">中国强大，为中国感到自豪...</p>
-          </div>
-          <div class="other-like">
-            <p class="like">
-              <span class="iconfont icon-dianzan"></span>
-              <span>10</span>
+              <span>{{item.otherLike}}</span>
             </p>
             <span class="iconfont icon-unie644"></span>
           </div>
@@ -127,7 +59,8 @@
     data(){
       return {
         id:this.$route.query.id,
-        item:this.$route.query.item
+        item:this.$route.query.item,
+        commenText:'',
       }
     }
   }
