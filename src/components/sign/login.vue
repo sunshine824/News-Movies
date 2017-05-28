@@ -155,8 +155,11 @@
         margin-bottom: 0.2rem;
         display: block;
       }
-      .icon span{
-        font-size: 0.8rem;
+      .icon{
+        text-align: center;
+        span{
+          font-size: 0.8rem;
+        }
       }
     }
   }

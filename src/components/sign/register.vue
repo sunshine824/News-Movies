@@ -192,8 +192,11 @@
     display: block;
   }
 
-  .icon span {
+  .icon{
+    text-align: center;
+  span{
     font-size: 0.8rem;
+  }
   }
 
   }
