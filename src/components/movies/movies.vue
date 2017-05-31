@@ -7,6 +7,8 @@
     </div>
     <carousel></carousel>
     <movieList></movieList>
+    <movieList></movieList>
+    <movieList></movieList>
   </div>
 </template>
 <script>
@@ -27,5 +29,7 @@
   }
 </script>
 <style>
-
+  .movies{
+    margin-bottom: 1.2rem;
+  }
 </style>
