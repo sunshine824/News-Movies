@@ -5,7 +5,6 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import mutations from './mutations'
 import actions from './actions'
-import axios from 'axios'
 
 Vue.use(Vuex)
 
@@ -235,7 +234,8 @@ const state={
   },
   movieInfo:{
     moviesType:['悬疑','恐怖','科幻','动作','动画','史诗','偶像'],
-    carousel:['../../../static/images/1-1.jpg','../../../static/images/1-2.jpg','../../../static/images/1-3.jpg','../../../static/images/1-4.jpg']
+    carousel:['../../../static/images/1-1.jpg','../../../static/images/1-2.jpg','../../../static/images/1-3.jpg','../../../static/images/1-4.jpg'],
+    moviesList:[]
   }
 }
 

@@ -12,7 +12,6 @@
 </template>
 <script>
   export default {
-    name:'评分组件',
     data(){
       return {
 

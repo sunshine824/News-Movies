@@ -11,6 +11,9 @@ const mutations={
     }
     obj.push(state.newInfo.newsMsg[id-1])
     return obj
+  },
+  getMovieList(state,url){
+
   }
 }
 
