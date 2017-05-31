@@ -1,19 +1,19 @@
 <template>
   <div class="bg">
     <div class="logo">
-      <img src="../../assets/images/login_03.png"/>
+      <img src="../../../static/images/login_03.png"/>
     </div>
     <div class="form">
       <div class="form-group">
-        <label for="username"><img src="../../assets/images/login_07.png"/></label>
+        <label for="username"><img src="../../../static/images/login_07.png"/></label>
         <input type="text" placeholder="请输入邮箱或用户名" id="username" class="username" v-model="userName">
       </div>
       <div class="form-group">
-        <label for="passwd"><img src="../../assets/images/login_10.png"/></label>
+        <label for="passwd"><img src="../../../static/images/login_10.png"/></label>
         <input type="password" placeholder="请输入密码" id="passwd" class="passwd" v-model="passwd">
       </div>
       <div class="form-group">
-        <label for="passwdCheck"><img src="../../assets/images/login_10.png"/></label>
+        <label for="passwdCheck"><img src="../../../static/images/login_10.png"/></label>
         <input type="password" placeholder="请确认密码" id="passwdCheck" class="passwdCheck" v-model="passwdCheck">
       </div>
       <p class="err-msg">{{msg}}</p>

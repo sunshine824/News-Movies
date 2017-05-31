@@ -84,6 +84,7 @@ export default {
   height: 1rem;
   background: #fff;
   border-top:1px solid #666;
+  z-index:300;
   ul{
     li{
       float: left;

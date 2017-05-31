@@ -1,0 +1,77 @@
+#emotions{
+  left: 0;
+  width: 100%;
+  font-size: 12px;
+  background: #fff;
+  position: absolute;
+  border: 1px solid #E8E8E8;
+  z-index: 200;
+}
+#emotions a{
+	color: #9ABBC8;
+	padding:2px 7px;
+	text-decoration:none;
+  font-size: 0.25rem;
+}
+#emotions img{
+	border:0;
+  width: 0.38rem;
+  height: 0.38rem;
+}
+#emotions div{
+  margin: 5px 7px;
+	padding:1px;
+	overflow: hidden;
+}
+#emotions #prev,
+#emotions #next
+{
+	margin-left:3px;
+	background:#eee;
+}
+#emotions .categorys{
+	color:#ccc;
+	overflow:auto;
+}
+#emotions .categorys a{
+	display: inline-block;
+  font-size: 0.25rem;
+}
+#emotions .categorys a:hover{
+	text-decoration:underline;
+}
+#emotions .categorys a.current{
+	cursor: default;
+	background: #F0F0F0;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+#emotions .container{
+	padding:1px;
+	overflow: hidden;
+}
+#emotions .container a{
+	float:left;
+	text-align:center;
+  margin: 2px;
+}
+#emotions .container a:hover{
+	z-index:2;
+	position:relative;
+	border:1px solid #0095cd;
+}
+#emotions .page{
+	text-align:right;
+}
+#emotions .page a.current{
+	color: #666;
+	background-color:#fff;
+}
+#emotions .page a{
+	margin-left:3px;
+	color: #0078B6;
+	background-color:#f3f3f3;
+}
+#emotions .page a:hover{
+	background-color:#e7e7e7;
+}

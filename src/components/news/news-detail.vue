@@ -6,7 +6,7 @@
       <span>作者：{{item.author}}</span>
     </div>
     <div class="news-img">
-      <img src="../../assets/images/1.jpg">
+      <img src="../../../static/images/1.jpg">
     </div>
     <article class="news-info">
       <p>
@@ -26,15 +26,15 @@
     </div>
     <div class="input-group">
       <input type="text" placeholder="您想说点什么" class="input-text" v-model="commenText">
-      <span class="iconfont icon-xiaolian"></span>
-      <span class="btn">发表</span>
+      <span class="iconfont icon-xiaolian" id="emoji"></span>
+      <span class="btn" @click="sendMsg()">发表</span>
     </div>
     <div class="comment">
       <span class="comment-title">全部评论</span>
       <ul class="comment-list">
         <li v-for="(item,index) in item.comment" :key="index">
           <p class="head-img">
-            <img src="../../assets/images/head.jpg"/>
+            <img src="../../../static/images/head.jpg"/>
           </p>
           <div class="comment-info">
             <p class="name">{{item.name}}</p>
@@ -55,17 +55,87 @@
   </div>
 </template>
 <script>
+  import Vue from 'vue'  //在子组件中使用 import Vue from 'vue' 这样的写法引入vue后才能使用
+
   export default {
     data(){
       return {
         id:this.$route.query.id,
         item:this.$route.query.item,
         commenText:'',
+        otherLike:0,
+      }
+    },
+    //数据更新调用
+    mounted:function(){
+      //显示表情包
+      $('#emoji').SinaEmotion($('.input-text'))
+    },
+    methods:{
+      sendMsg(){
+        if(this.commentText==''){
+          return
+        }
+        //js异常处理 AnalyticEmotion方法代码有缺陷
+        try{
+          //解析表情
+          this.commenText=AnalyticEmotion(this.commenText);
+        }catch(err){
+          this.commenText=this.commenText;
+        }
+
+        var nowDate=this.getNowFormatDate() //获取当前日期
+
+        var html=Vue.extend({
+          template:`<li>
+                      <p class="head-img">
+                        <img src="../../../static/images/head.jpg"/>
+                      </p>
+                       <div class="comment-info">
+                        <p class="name">阳晨西下</p>
+                        <p class="date">${nowDate}</p>
+                        <p class="text">${this.commenText}</p>
+                      </div>
+                      <div class="other-like">
+                        <p class="like">
+                          <span class="iconfont icon-dianzan"></span>
+                          <span>${this.otherLike}</span>
+                        </p>
+                        <span class="iconfont icon-unie644"></span>
+                      </div>
+                    </li>`
+        })
+
+        //挂载html节点
+        var content=new html().$mount();
+
+        document.querySelector('.comment-list').appendChild(content.$el)
+
+        this.commenText=''
+      },
+      getNowFormatDate(){
+        var date = new Date();
+        var seperator1 = "-";
+        var seperator2 = ":";
+        var month = date.getMonth() + 1;
+        var strDate = date.getDate();
+        if (month >= 1 && month <= 9) {
+          month = "0" + month;
+        }
+        if (strDate >= 0 && strDate <= 9) {
+          strDate = "0" + strDate;
+        }
+        var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+          + " " + date.getHours() + seperator2 + date.getMinutes()
+          + seperator2 + date.getSeconds();
+        return currentdate;
       }
     }
   }
 </script>
 <style lang="less">
+  @import '../../assets/css/jquery.sinaEmotion.css';
+
   .news-detail{
     padding:0.35rem;
     margin-bottom:1.5rem;
@@ -124,6 +194,7 @@
     }
     .input-group{
       margin:0 auto .4rem auto;
+      position: relative;
       .input-text{
         border: 1px solid #e5e5e5;
         width: 75%;

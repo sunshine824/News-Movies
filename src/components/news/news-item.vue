@@ -9,7 +9,7 @@
         </div>
       </div>
       <p class="news-img">
-        <img src="../../assets/images/junjian.jpg">
+        <img src="../../../static/images/junjian.jpg">
       </p>
     </router-link>
   </div>
@@ -66,7 +66,7 @@
       }
       .read:before{
         content: '';
-        background: url("../../assets/images/chat1.png") no-repeat;
+        background: url("../../../static/images/chat1.png") no-repeat;
         width: 0.23rem;
         height: 0.23rem;
         background-size: 100% auto;

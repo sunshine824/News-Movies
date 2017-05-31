@@ -2,22 +2,22 @@
   <Carousel autoplay v-model="value2" :autoplay-speed="autoplaySpeed">
     <Carousel-item>
       <div class="demo-carousel">
-        <img src="../../assets/images/fanwu.jpg"/>
+        <img src="../../../static/images/fanwu.jpg"/>
       </div>
     </Carousel-item>
     <Carousel-item>
       <div class="demo-carousel">
-        <img src="../../assets/images/junshi.jpg"/>
+        <img src="../../../static/images/junshi.jpg"/>
       </div>
     </Carousel-item>
     <Carousel-item>
       <div class="demo-carousel">
-        <img src="../../assets/images/meinv.jpg"/>
+        <img src="../../../static/images/meinv.jpg"/>
       </div>
     </Carousel-item>
     <Carousel-item>
       <div class="demo-carousel">
-        <img src="../../assets/images/qiche.jpg"/>
+        <img src="../../../static/images/qiche.jpg"/>
       </div>
     </Carousel-item>
   </Carousel>
