@@ -9,7 +9,7 @@
       <p class="title">{{pageName}}</p>
     </div>
     <router-view></router-view>
-    <div class="tabBar">
+    <div class="tabBar" v-show="isShowBar">
       <ul>
         <router-link tag="li" :to="item.url" v-for="(item,index) in tabs" :key="index" @click.native="toggle(index)" :class="{active:active===index}">
           <span class="iconfont" :class="item.class"></span>
@@ -28,6 +28,7 @@ export default {
       isBack:false,
       pageName:'',
       active:0,
+      isShowBar:true,
       tabs:[
         {
           class:'icon-xinwen1',
@@ -54,8 +55,10 @@ export default {
       const toDepth=to.path.split('/').length
       if(toDepth==2){
         this.pageName=to.name;
-        this.isBack=false
+        this.isBack=false;
+        this.isShowBar=true
       }else{
+        this.isShowBar=false
         this.isBack=true
       }
     }

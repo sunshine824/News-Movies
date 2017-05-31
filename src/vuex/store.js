@@ -230,7 +230,12 @@ const state={
         ],
         id:6
       }
-    ]
+    ],
+    carousel:['../../../static/images/fanwu.jpg','../../../static/images/junshi.jpg','../../../static/images/meinv.jpg','../../../static/images/qiche.jpg'],
+  },
+  movieInfo:{
+    moviesType:['悬疑','恐怖','科幻','动作','动画','史诗','偶像'],
+    carousel:['../../../static/images/1-1.jpg','../../../static/images/1-2.jpg','../../../static/images/1-3.jpg','../../../static/images/1-4.jpg']
   }
 }
 

@@ -1,23 +1,8 @@
 <template>
-  <Carousel autoplay v-model="value2" :autoplay-speed="autoplaySpeed">
-    <Carousel-item>
+  <Carousel autoplay :autoplay-speed="autoplaySpeed">
+    <Carousel-item v-for="(item,index) in getCarouselImg" :key="index">
       <div class="demo-carousel">
-        <img src="../../../static/images/fanwu.jpg"/>
-      </div>
-    </Carousel-item>
-    <Carousel-item>
-      <div class="demo-carousel">
-        <img src="../../../static/images/junshi.jpg"/>
-      </div>
-    </Carousel-item>
-    <Carousel-item>
-      <div class="demo-carousel">
-        <img src="../../../static/images/meinv.jpg"/>
-      </div>
-    </Carousel-item>
-    <Carousel-item>
-      <div class="demo-carousel">
-        <img src="../../../static/images/qiche.jpg"/>
+        <img :src="item"/>
       </div>
     </Carousel-item>
   </Carousel>
@@ -27,7 +12,15 @@
     data(){
       return {
         autoplaySpeed:3000,
-        value2:0,
+        pageName:'',
+      }
+    },
+    mounted:function(){
+      this.pageName=this.$route.name
+    },
+    computed:{
+      getCarouselImg(){
+        return  this.pageName=='新闻' ? this.$store.state.newInfo.carousel : this.$store.state.movieInfo.carousel
       }
     }
   }
