@@ -2,16 +2,14 @@
   <div class="move-list-container movies-template">
     <div class="inner-container">
       <div class="movie-head">
-        <p class="slogan">即将上映</p>
+        <p class="slogan">{{item.subjectTitle}}</p>
         <div class="more">
-          <span class="more-text">更多</span>
+          <span class="more-text" @click="showMore()">更多</span>
           <img class="more-img" src="../../../static/images/arrow-right.png" />
         </div>
       </div>
       <div class="movie-container">
-        <movieItem></movieItem>
-        <movieItem></movieItem>
-        <movieItem></movieItem>
+        <movieItem v-for="(item,index) in item.movies" :item="item" :key="index"></movieItem>
       </div>
     </div>
   </div>
@@ -19,6 +17,7 @@
 <script>
   import movieItem from './movie-item.vue';
   export default {
+    props:["item"],
     components:{
       movieItem
     },

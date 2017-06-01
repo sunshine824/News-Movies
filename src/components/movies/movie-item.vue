@@ -1,13 +1,14 @@
 <template>
-  <div class="movie-item">
-    <img  class="movie-img" src="../../../static/images/yourname.jpg"/>
-    <p class="movie-title">你的名字</p>
-    <Stars></Stars>
-  </div>
+  <router-link tag="div" :to="{path:'/movie/detail',query:{movieId:item.movieId}}" class="movie-item">
+    <img  class="movie-img" :src="item.coverageUrl"/>
+    <p class="movie-title">{{item.title}}</p>
+    <Stars :item="item"></Stars>
+  </router-link>
 </template>
 <script>
   import stars from './star.vue';
   export default {
+    props:["item"],
     components:{
       Stars:stars
     },

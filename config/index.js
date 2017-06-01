@@ -28,12 +28,9 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/api': {
-        target: 'https://api.douban.com/',
+      '/v2': {
+        target: 'https://api.douban.com',
         changeOrigin: true,
-        pathRewrite: {
-          '^/api': ''
-        }
       }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"

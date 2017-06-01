@@ -5,11 +5,13 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import mutations from './mutations'
 import actions from './actions'
+import getters from './getters'
 
 Vue.use(Vuex)
 
 const state={
   count:0,
+  stars:0,
   newInfo:{
     newsType:['娱乐','体育','军事','美女','娱乐','美食','科技'],
     newsMsg:[
@@ -242,5 +244,6 @@ const state={
 export default new Vuex.Store({
   state,
   mutations,
-  actions
+  actions,
+  getters
 })

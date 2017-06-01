@@ -11,14 +11,15 @@ const actions={
   //封装一个ajax方法
   getAjax({commit,state},url,data){
     var data=data || '';
-
-    axios.post(url,data)
-      .then((res)=>{
-          console.log(res.data)
-      })
-      .catch((err)=>{
-        console.log(err.message)
-      })
+    return new Promise((resolve, reject)=>{
+      axios.post(url,data)
+        .then((res)=>{
+          return resolve(res.data)
+        })
+        .catch((err)=>{
+          return reject(err)
+        })
+    })
   }
 }
 

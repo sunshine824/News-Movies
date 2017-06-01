@@ -1,17 +1,15 @@
 <template>
   <div class="stars-container">
     <div class="stars">
-      <img src="../../../static/images/star.png"/>
-      <img src="../../../static/images/star.png"/>
-      <img src="../../../static/images/star.png"/>
-      <img src="../../../static/images/star.png"/>
-      <img src="../../../static/images/star.png"/>
+      <img  v-for="(item,index) in item.stars" :key="index" v-if="item" src="../../../static/images/star.png"/>
+      <img v-else src="../../../static/images/none-star.png"/>
     </div>
-    <p class="star-score">7.3分</p>
+    <p class="star-score">{{item.average}}分</p>
   </div>
 </template>
 <script>
   export default {
+    props:["item"],
     data(){
       return {
 

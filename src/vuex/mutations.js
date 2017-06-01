@@ -12,8 +12,10 @@ const mutations={
     obj.push(state.newInfo.newsMsg[id-1])
     return obj
   },
-  getMovieList(state,url){
 
+  //评分处理
+  changeStars(state,stars){
+    state.stars=stars
   }
 }
 
