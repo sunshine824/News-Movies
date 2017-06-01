@@ -19,6 +19,8 @@
     },
     created(){
       var type=this.$route.query.subjectTitle
+      this.$store.commit('togglePageName',type)
+
       console.log(type)
       switch (type){
         case "正在热映":

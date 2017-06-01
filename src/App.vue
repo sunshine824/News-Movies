@@ -6,7 +6,7 @@
       <div class="back iconfont icon-back" @click="$router.back()" v-show="isBack">
         <span>返回</span>
       </div>
-      <p class="title">{{pageName}}</p>
+      <p class="title">{{this.$store.state.pageName}}</p>
     </div>
     <router-view></router-view>
     <div class="tabBar" v-show="isShowBar">
@@ -54,7 +54,7 @@ export default {
       //console.log(to)
       const toDepth=to.path.split('/').length
       if(toDepth==2){
-        this.pageName=to.name;
+        this.$store.state.pageName=to.name;
         this.isBack=false;
         this.isShowBar=true
       }else{

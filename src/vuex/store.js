@@ -12,6 +12,7 @@ Vue.use(Vuex)
 const state={
   count:0,
   stars:0,
+  pageName:'新闻',
   newInfo:{
     newsType:['娱乐','体育','军事','美女','娱乐','美食','科技'],
     newsMsg:[

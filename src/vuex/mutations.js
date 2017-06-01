@@ -16,6 +16,14 @@ const mutations={
   //评分处理
   changeStars(state,stars){
     state.stars=stars
+  },
+
+  //切换pageName
+  togglePageName(state,name){
+    if(!name){
+      return
+    }
+    state.pageName=name;
   }
 }
 
