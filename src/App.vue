@@ -109,4 +109,25 @@ export default {
     }
   }
 }
+
+.news-head{
+  height: 0.9rem;
+  background: #277de2;
+  width: 100%;
+  color:#fff;
+  position: relative;
+  z-index:888;
+  .back{
+    font-size: 0.3rem;
+    line-height: 0.9rem;
+    margin-left: 10px;
+    position: absolute;
+    left: 0;
+  }
+  .title{
+    font-size: 0.3rem;
+    line-height: 0.9rem;
+    text-align: center;
+  }
+}
 </style>
