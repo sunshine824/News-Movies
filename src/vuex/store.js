@@ -237,7 +237,9 @@ const state={
   movieInfo:{
     moviesType:['悬疑','恐怖','科幻','动作','动画','史诗','偶像'],
     carousel:['../../../static/images/1-1.jpg','../../../static/images/1-2.jpg','../../../static/images/1-3.jpg','../../../static/images/1-4.jpg'],
-    moviesList:[]
+    movieList:['inTheaters','comingSoon','Top250'],
+    movieListName:['正在热映','即将上映','豆瓣TOP250'],
+    moviesList:{}
   }
 }
 

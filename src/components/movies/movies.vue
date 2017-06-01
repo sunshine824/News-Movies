@@ -7,7 +7,7 @@
     </div>
     <carousel></carousel>
     <div class="container">
-      <movieList v-for="(item,index) in movieList" :item="item" :key="index"></movieList>
+      <movieList v-for="(item,index) in $store.state.movieInfo.moviesList" :item="item" :key="index"></movieList>
     </div>
   </div>
 </template>
@@ -24,9 +24,7 @@
     },
     data(){
       return{
-        movieList:{},
-        movieType:['inTheaters','comingSoon','Top250'],
-        movieTypeName:['正在热映','即将上映','豆瓣TOP250']
+
       }
     },
     created(){
@@ -61,8 +59,8 @@
             }
             movies.push(temp)
           }
-          this.movieList[this.movieType[index]]={
-            subjectTitle:this.movieTypeName[index],
+          this.$store.state.movieInfo.moviesList[this.$store.state.movieInfo.movieList[index]]={
+            subjectTitle:this.$store.state.movieInfo.movieListName[index],
             movies:movies
           }
         }

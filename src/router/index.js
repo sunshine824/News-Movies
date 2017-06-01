@@ -25,13 +25,23 @@ const routes=[
   },
   {
     path: '/news/news-details',
-    name: "新闻",
+    name: "",
     component: resolve => require(["../components/news/news-detail.vue"], resolve)
   },
   {
     path: '/movies',
     name: "电影",
     component: resolve => require(["../components/movies/movies.vue"], resolve)
+  },
+  {
+    path: '/movies/more-movies',
+    name: "",
+    component: resolve => require(["../components/movies/more-movies.vue"], resolve)
+  },
+  {
+    path: '/movie/movie-details',
+    name: "",
+    component: resolve => require(["../components/movies/movie-details.vue"], resolve)
   },
   {
     path: '/setting',

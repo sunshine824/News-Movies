@@ -3,10 +3,10 @@
     <div class="inner-container">
       <div class="movie-head">
         <p class="slogan">{{item.subjectTitle}}</p>
-        <div class="more">
-          <span class="more-text" @click="showMore()">更多</span>
+        <router-link tag="div" :to="{path:'/movies/more-movies',query:{subjectTitle:item.subjectTitle}}" class="more">
+          <span class="more-text">更多</span>
           <img class="more-img" src="../../../static/images/arrow-right.png" />
-        </div>
+        </router-link>
       </div>
       <div class="movie-container">
         <movieItem v-for="(item,index) in item.movies" :item="item" :key="index"></movieItem>

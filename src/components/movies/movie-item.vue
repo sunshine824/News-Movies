@@ -1,5 +1,5 @@
 <template>
-  <router-link tag="div" :to="{path:'/movie/detail',query:{movieId:item.movieId}}" class="movie-item">
+  <router-link tag="div" :to="{path:'/movie/movie-details',query:{movieId:item.movieId}}" class="movie-item">
     <img  class="movie-img" :src="item.coverageUrl"/>
     <p class="movie-title">{{item.title}}</p>
     <Stars :item="item"></Stars>
