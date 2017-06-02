@@ -7,7 +7,7 @@
     </div>
     <carousel></carousel>
     <div class="container">
-      <movieList v-for="(item,index) in $store.state.movieInfo.moviesList" :item="item"></movieList>
+      <movieList v-for="(item,index) in $store.state.movieInfo.moviesList" :item="item" :key="index"></movieList>
     </div>
   </div>
 </template>

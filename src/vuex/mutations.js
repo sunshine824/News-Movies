@@ -24,6 +24,11 @@ const mutations={
       return
     }
     state.pageName=name;
+  },
+
+  //切换loading显示
+  toggleShowLoading(state,status){
+    state.isLoading=status ? true : false
   }
 }
 

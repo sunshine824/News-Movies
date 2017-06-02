@@ -2,11 +2,11 @@
   <div id="app">
     <router-view name="sign"></router-view>
 
-    <div class="news-head">
+    <div class="news-head" :class="{'flx':isFlx}">
       <div class="back iconfont icon-back" @click="$router.back()" v-show="isBack">
         <span>返回</span>
       </div>
-      <p class="title">{{this.$store.state.pageName}}</p>
+      <p class="title"><img src="../static/images/Loading.png" v-if="$store.state.isLoading"/>{{this.$store.state.pageName}}</p>
     </div>
     <router-view></router-view>
     <div class="tabBar" v-show="isShowBar">
@@ -29,6 +29,7 @@ export default {
       pageName:'',
       active:0,
       isShowBar:true,
+      isFlx:false,
       tabs:[
         {
           class:'icon-xinwen1',
@@ -51,7 +52,7 @@ export default {
   //监听$route切换pageName
   watch:{
     "$route" (to, from){
-      //console.log(to)
+      console.log(to)
       const toDepth=to.path.split('/').length
       if(toDepth==2){
         this.$store.state.pageName=to.name;
@@ -61,6 +62,8 @@ export default {
         this.isShowBar=false
         this.isBack=true
       }
+
+      to.path=='/movies/more-movies' ? this.isFlx=true : this.isFlx=false
     }
   },
   methods:{
@@ -128,6 +131,27 @@ export default {
     font-size: 0.3rem;
     line-height: 0.9rem;
     text-align: center;
+    img{
+      width: 0.35rem;
+      height: 0.35rem;
+      animation: loading 1s infinite linear;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+  }
+}
+.flx{
+  position: fixed !important;
+  top: 0;
+}
+
+@keyframes loading
+{
+  from {
+    transform:rotate(0deg);
+  }
+  to {
+    transform:rotate(360deg);
   }
 }
 </style>

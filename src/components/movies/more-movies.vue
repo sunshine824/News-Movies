@@ -14,35 +14,44 @@
     data(){
       return{
         moviesAll:[],
-        dataUrl:''
+        dataUrl:'',
+        start:0,
+        count:20,
+        isCanPull:false
       }
+    },
+    beforeCreate(){
+      this.start=0;
     },
     created(){
-      var type=this.$route.query.subjectTitle
-      this.$store.commit('togglePageName',type)
-
-      console.log(type)
-      switch (type){
-        case "正在热映":
-              this.dataUrl='/v2/movie/in_theaters'
-              break;
-        case "即将上映":
-              this.dataUrl='/v2/movie/coming_soon'
-              break;
-        case "豆瓣TOP250":
-              this.dataUrl='/v2/movie/top250'
-              break;
-      }
-      this.$store.dispatch('getAjax',this.dataUrl)
-        .then(res=>{
-          //console.log(res)
-          this.doGetData(res)
-        })
-        .catch(err=>{
-          console.log(err)
-        })
+     this.getMoviesByAjax()
     },
     methods:{
+      getMoviesByAjax(){
+        var type=this.$route.query.subjectTitle
+        this.$store.commit('togglePageName',type)
+
+        console.log(type)
+        switch (type){
+          case "正在热映":
+            this.dataUrl='/v2/movie/in_theaters?start='+this.start+'&count='+this.count
+            break;
+          case "即将上映":
+            this.dataUrl='/v2/movie/coming_soon?start='+this.start+'&count='+this.count
+            break;
+          case "豆瓣TOP250":
+            this.dataUrl='/v2/movie/top250?start='+this.start+'&count='+this.count
+            break;
+        }
+        this.$store.dispatch('getAjax',this.dataUrl)
+          .then(res=>{
+            //console.log(res)
+            this.doGetData(res)
+          })
+          .catch(err=>{
+            console.log(err)
+          })
+      },
       doGetData(res){
         console.log(res)
         for(var idx in res.subjects){
@@ -60,15 +69,35 @@
             stars: this.$store.getters.convertToStarsArray
           }
           this.moviesAll.push(temp)
+
+          //隐藏loading
+          this.$store.commit('toggleShowLoading',false)
+        }
+      },
+      handleScroll(){
+        var scrollTop=document.documentElement.scrollTop || document.body.scrollTop
+        var clientHeight=document.documentElement.clientHeight
+        var scrollHeight=document.documentElement.scrollHeight
+        if(scrollTop+clientHeight>=scrollHeight){
+          //显示loading
+          this.$store.commit('toggleShowLoading',true)
+
+          this.start+=20;
+          console.log(this.start)
+          this.getMoviesByAjax()
         }
       }
+    },
+    mounted(){
+      window.addEventListener('scroll',this.handleScroll)
     }
   }
 
 </script>
 <style>
   .grid-container{
-    margin: 40px 0 40px 6px;
+    margin: 1.3rem 0 .4rem 6px;
+    overflow: auto;
   }
   .single-view-container{
     float: left;
