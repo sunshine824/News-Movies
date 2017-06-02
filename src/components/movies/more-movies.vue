@@ -20,11 +20,10 @@
         isCanPull:false
       }
     },
-    beforeCreate(){
-      this.start=0;
-    },
     created(){
-     this.getMoviesByAjax()
+      console.log(this.start)
+      this.start=0;
+      this.getMoviesByAjax()
     },
     methods:{
       getMoviesByAjax(){
@@ -53,7 +52,7 @@
           })
       },
       doGetData(res){
-        console.log(res)
+        //console.log(res)
         for(var idx in res.subjects){
           var subject = res.subjects[idx]
           var title=subject.title;
@@ -83,7 +82,7 @@
           this.$store.commit('toggleShowLoading',true)
 
           this.start+=20;
-          console.log(this.start)
+          //console.log(this.start)
           this.getMoviesByAjax()
         }
       }

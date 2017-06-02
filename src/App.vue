@@ -64,6 +64,7 @@ export default {
       }
 
       to.path=='/movies/more-movies' ? this.isFlx=true : this.isFlx=false
+      to.path!='/movies/more-movies' ? this.$store.commit('toggleShowLoading',false) : this.$store.commit('toggleShowLoading',true)
     }
   },
   methods:{
