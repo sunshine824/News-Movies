@@ -21,7 +21,6 @@
       }
     },
     created(){
-      console.log(this.start)
       this.start=0;
       this.getMoviesByAjax()
     },
@@ -44,6 +43,13 @@
         }
         this.$store.dispatch('getAjax',this.dataUrl)
           .then(res=>{
+
+            //请求成功没数据处理
+            if(res.subjects==''){
+              //隐藏loading
+              this.$store.commit('toggleShowLoading',false)
+            }
+
             //console.log(res)
             this.doGetData(res)
           })
@@ -73,22 +79,27 @@
           this.$store.commit('toggleShowLoading',false)
         }
       },
+      //滚动加载更多
       handleScroll(){
-        var scrollTop=document.documentElement.scrollTop || document.body.scrollTop
-        var clientHeight=document.documentElement.clientHeight
-        var scrollHeight=document.documentElement.scrollHeight
+        var dom=document.querySelector('.grid-container')
+        var scrollTop=dom.scrollTop
+        var clientHeight=dom.clientHeight
+        var scrollHeight=dom.scrollHeight
+
+        console.log(scrollTop,clientHeight,scrollHeight)
+
         if(scrollTop+clientHeight>=scrollHeight){
           //显示loading
           this.$store.commit('toggleShowLoading',true)
 
           this.start+=20;
-          //console.log(this.start)
+
           this.getMoviesByAjax()
         }
       }
     },
     mounted(){
-      window.addEventListener('scroll',this.handleScroll)
+      document.querySelector('.grid-container').addEventListener('scroll',this.handleScroll)
     }
   }
 
@@ -97,6 +108,7 @@
   .grid-container{
     margin: 1.3rem 0 .4rem 6px;
     overflow: auto;
+    height: 100vh;
   }
   .single-view-container{
     float: left;
