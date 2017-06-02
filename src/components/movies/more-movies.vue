@@ -15,8 +15,8 @@
       return{
         moviesAll:[],
         dataUrl:'',
-        start:0,
-        count:20,
+        start:0, //从第一个开始获取
+        count:20, //获取的总个数
         isCanPull:false
       }
     },
@@ -82,11 +82,14 @@
       //滚动加载更多
       handleScroll(){
         var dom=document.querySelector('.grid-container')
-        var scrollTop=dom.scrollTop
+        /*var scrollTop=dom.scrollTop
         var clientHeight=dom.clientHeight
-        var scrollHeight=dom.scrollHeight
+        var scrollHeight=dom.scrollHeight*/
 
-        console.log(scrollTop,clientHeight,scrollHeight)
+        //es6解构
+        var [scrollTop,clientHeight,scrollHeight]=[dom.scrollTop,dom.clientHeight,dom.scrollHeight]
+
+        //console.log(scrollTop,clientHeight,scrollHeight)
 
         if(scrollTop+clientHeight>=scrollHeight){
           //显示loading
@@ -110,7 +113,7 @@
           var endTy= e.changedTouches[0].clientY,
             distance=endTy-startTy;
           if(distance>20){ //下拉
-            dom.style.marginTop=45+'px'
+            dom.style.marginTop=0.9+'rem'
           }
         },false)
 
