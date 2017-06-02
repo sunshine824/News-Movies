@@ -58,7 +58,11 @@
           })
       },
       doGetData(res){
-        //console.log(res)
+
+        //如果是刷新先清空，在赋值
+        if(this.isCanPull){
+          this.moviesAll=[];
+        }
         for(var idx in res.subjects){
           var subject = res.subjects[idx]
           var title=subject.title;
@@ -73,18 +77,21 @@
             movieId:subject.id,
             stars: this.$store.getters.convertToStarsArray
           }
+
           this.moviesAll.push(temp)
 
           //隐藏loading
           this.$store.commit('toggleShowLoading',false)
+
+          if(this.isCanPull){
+            document.querySelector('.grid-container').style.marginTop=1.3+'rem';
+            this.isCanPull=false;
+          }
         }
       },
       //滚动加载更多
       handleScroll(){
         var dom=document.querySelector('.grid-container')
-        /*var scrollTop=dom.scrollTop
-        var clientHeight=dom.clientHeight
-        var scrollHeight=dom.scrollHeight*/
 
         //es6解构
         var [scrollTop,clientHeight,scrollHeight]=[dom.scrollTop,dom.clientHeight,dom.scrollHeight]
@@ -102,6 +109,7 @@
       },
       //下拉刷新
       pullDown(){
+        var startTy
         var dom=document.querySelector('.grid-container')
         //手指按下
         dom.addEventListener('touchstart',function(e){
@@ -110,12 +118,13 @@
 
         //手指一动
         dom.addEventListener('touchmove',function(e){
+          this.isCanPull=true;
           var endTy= e.changedTouches[0].clientY,
             distance=endTy-startTy;
           if(distance>20){ //下拉
-            dom.style.marginTop=0.9+'rem'
+            dom.style.marginTop=1.8+'rem'
           }
-        },false)
+        }.bind(this))
 
         //手指抬起
         dom.addEventListener('touchend',function(e){
@@ -123,11 +132,12 @@
           this.$store.commit('toggleShowLoading',true)
           this.start=0;
           this.getMoviesByAjax()
-          dom.style.marginTop=0
-        })
+
+        }.bind(this))
       }
     },
     mounted(){
+      this.pullDown();
       document.querySelector('.grid-container').addEventListener('scroll',this.handleScroll)
     }
   }
@@ -138,7 +148,7 @@
     margin: 1.3rem 0 .4rem 6px;
     overflow: auto;
     height: 100vh;
-    transition:margin 2s
+    transition:margin 1s
   }
   .single-view-container{
     float: left;
