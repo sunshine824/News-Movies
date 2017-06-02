@@ -96,6 +96,32 @@
 
           this.getMoviesByAjax()
         }
+      },
+      //下拉刷新
+      pullDown(){
+        var dom=document.querySelector('.grid-container')
+        //手指按下
+        dom.addEventListener('touchstart',function(e){
+          startTy=e.touches[0].clientY
+        },false)
+
+        //手指一动
+        dom.addEventListener('touchmove',function(e){
+          var endTy= e.changedTouches[0].clientY,
+            distance=endTy-startTy;
+          if(distance>20){ //下拉
+            dom.style.marginTop=45+'px'
+          }
+        },false)
+
+        //手指抬起
+        dom.addEventListener('touchend',function(e){
+          //显示loading
+          this.$store.commit('toggleShowLoading',true)
+          this.start=0;
+          this.getMoviesByAjax()
+          dom.style.marginTop=0
+        })
       }
     },
     mounted(){
@@ -109,6 +135,7 @@
     margin: 1.3rem 0 .4rem 6px;
     overflow: auto;
     height: 100vh;
+    transition:margin 2s
   }
   .single-view-container{
     float: left;
