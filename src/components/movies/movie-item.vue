@@ -37,7 +37,7 @@
   }
   @media screen and (min-width: 640px) {
     .movie-img{
-      height: 240px;
+      height: 2.4rem;
     }
     .movie-item{
       margin: 0 0.22rem;
@@ -45,7 +45,7 @@
   }
   @media screen and (min-width: 750px) {
     .movie-img{
-      height: 280px;
+      height: 2.8rem;
     }
     .movie-item{
       margin: 0 0.26rem;
@@ -53,7 +53,7 @@
   }
   @media screen and (min-width: 828px) {
     .movie-img{
-      height: 308px;
+      height: 3.08rem;
     }
     .movie-item{
       margin: 0 0.29rem;
