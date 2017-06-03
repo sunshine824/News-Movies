@@ -24,16 +24,39 @@
     display: flex;
     flex-direction: column;
     margin: 0 0.22rem;
-    width: 2rem;
+    width: 26%;
     overflow: auto;
   }
   .movie-img{
-    width: 2rem;
-    height: 2.7rem;
+    width: 100%;
     padding-bottom: .15rem;
   }
   .movie-title{
     margin-bottom: 0.1rem;
     font-size: 0.24rem;
+  }
+  @media screen and (min-width: 640px) {
+    .movie-img{
+      height: 240px;
+    }
+    .movie-item{
+      margin: 0 0.22rem;
+    }
+  }
+  @media screen and (min-width: 750px) {
+    .movie-img{
+      height: 280px;
+    }
+    .movie-item{
+      margin: 0 0.26rem;
+    }
+  }
+  @media screen and (min-width: 828px) {
+    .movie-img{
+      height: 308px;
+    }
+    .movie-item{
+      margin: 0 0.29rem;
+    }
   }
 </style>

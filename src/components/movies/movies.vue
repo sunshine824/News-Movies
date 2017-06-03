@@ -73,4 +73,5 @@
     margin-bottom: 1.2rem;
     background: #f2f7fc;
   }
+
 </style>

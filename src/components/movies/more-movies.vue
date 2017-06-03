@@ -1,8 +1,6 @@
 <template>
   <div class="grid-container">
-    <div class="single-view-container" v-for="(item,index) in moviesAll" :key="index">
-      <movieItem :item="item"></movieItem>
-    </div>
+    <movieItem :item="item" v-for="(item,index) in moviesAll" :key="index" class="fl"></movieItem>
   </div>
 </template>
 <script>
@@ -148,10 +146,14 @@
     margin: 1.3rem 0 .4rem 6px;
     overflow: auto;
     height: 100vh;
-    transition:margin 1s
+    transition:margin .6s
   }
   .single-view-container{
     float: left;
     margin-bottom: 40px;
+  }
+  .fl{
+    float: left;
+    margin-bottom: 16px;
   }
 </style>
