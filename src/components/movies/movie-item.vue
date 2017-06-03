@@ -35,7 +35,7 @@
     margin-bottom: 0.1rem;
     font-size: 0.24rem;
   }
-  @media screen and (min-width: 640px) {
+  @media screen and (max-width: 640px) {
     .movie-img{
       height: 2.4rem;
     }
@@ -43,7 +43,7 @@
       margin: 0 0.22rem;
     }
   }
-  @media screen and (min-width: 750px) {
+  @media screen and (max-width: 750px) and (min-width: 641px) {
     .movie-img{
       height: 2.8rem;
     }
@@ -51,7 +51,7 @@
       margin: 0 0.26rem;
     }
   }
-  @media screen and (min-width: 828px) {
+  @media screen and (max-width: 828px) and (min-width: 751px) {
     .movie-img{
       height: 3.08rem;
     }
