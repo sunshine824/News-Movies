@@ -1,6 +1,6 @@
 <template>
   <router-link tag="div" :to="{path:'/movie/movie-details',query:{movieId:item.movieId}}" class="movie-item">
-    <img  class="movie-img" :src="item.coverageUrl"/>
+    <img class="movie-img" v-lazy="item.coverageUrl"/>
     <p class="movie-title">{{item.title}}</p>
     <Stars :item="item"></Stars>
   </router-link>

@@ -9,7 +9,7 @@
         </div>
       </div>
       <p class="news-img">
-        <img :src="item.img">
+        <img v-lazy="item.img">
       </p>
     </router-link>
   </div>

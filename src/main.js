@@ -8,10 +8,20 @@ import iView from 'iview';
 import axios from 'axios';
 import 'iview/dist/styles/iview.css';    // 使用 CSS
 import store from './vuex/store';
+import VueLazyload from 'vue-lazyload' //图片懒加载
 
 Vue.prototype.$ajax = axios
 
 Vue.use(iView);
+Vue.use(VueLazyload)
+
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  error: 'dist/error.png',
+  loading: 'dist/loading.gif',
+  attempt: 1
+})
+
 //Vue.use(VueResource);
 
 Vue.config.productionTip = false
