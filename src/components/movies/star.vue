@@ -34,7 +34,7 @@
     width: 0.2rem;
   }
   .star-score{
-    color: #1f3463;
+    color: #666;
     font-size:.25rem;
   }
 </style>

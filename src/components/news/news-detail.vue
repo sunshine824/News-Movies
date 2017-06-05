@@ -1,56 +1,60 @@
 <template>
   <div class="news-detail">
-    <h3>{{item.text}}</h3>
-    <div class="news-content">
-      <span>发布日期：{{item.date}}</span>
-      <span>作者：{{item.author}}</span>
-    </div>
-    <div class="news-img">
-      <img src="../../../static/images/1.jpg">
-    </div>
-    <article class="news-info">
-      <p>
-        {{item.content}}
-      </p>
-    </article>
-    <div class="like-share">
-      <p class="like">
-        <span class="iconfont icon-dianzan"></span>
-        <span class="like-count">{{item.like}}</span>
-      </p>
-      <p class="share">
-        <span class="iconfont icon-weixin" style="color: #00cd0c"></span>
-        <span class="iconfont icon-qq" style="color: #3cb1ed;padding: 0 0.5rem"></span>
-        <span class="iconfont icon-sina0" style="color: #cf4220"></span>
-      </p>
-    </div>
-    <div class="input-group">
-      <input type="text" placeholder="您想说点什么" class="input-text" v-model="commenText">
-      <span class="iconfont icon-xiaolian" id="emoji"></span>
-      <span class="btn" @click="sendMsg()">发表</span>
-    </div>
-    <div class="comment">
-      <span class="comment-title">全部评论</span>
-      <ul class="comment-list">
-        <li v-for="(item,index) in item.comment" :key="index">
-          <p class="head-img">
-            <img src="../../../static/images/head.jpg"/>
-          </p>
-          <div class="comment-info">
-            <p class="name">{{item.name}}</p>
-            <p class="date">{{item.commentDate}}</p>
-            <p class="text">{{item.commentText}}</p>
-          </div>
-          <div class="other-like">
-            <p class="like">
-              <span class="iconfont icon-dianzan"></span>
-              <span>{{item.otherLike}}</span>
+    <div class="news-contaienr">
+      <h3>{{item.text}}</h3>
+      <div class="news-content">
+        <span>发布日期：{{item.date}}</span>
+        <span>作者：{{item.author}}</span>
+      </div>
+      <div class="news-img">
+        <img :src="item.img">
+      </div>
+      <article class="news-info">
+        <p>
+          {{item.content}}
+        </p>
+      </article>
+      <div class="like-share">
+        <p class="like">
+          <span class="iconfont icon-dianzan"></span>
+          <span class="like-count">{{item.like}}</span>
+        </p>
+        <p class="share">
+          <span class="iconfont icon-weixin" style="color: #00cd0c"></span>
+          <span class="iconfont icon-qq" style="color: #3cb1ed;padding: 0 0.5rem"></span>
+          <span class="iconfont icon-sina0" style="color: #cf4220"></span>
+        </p>
+      </div>
+      <div class="comment">
+        <span class="comment-title">全部评论</span>
+        <ul class="comment-list">
+          <li v-for="(item,index) in item.comment" :key="index">
+            <p class="head-img">
+              <img src="../../../static/images/head.jpg"/>
             </p>
-            <span class="iconfont icon-unie644"></span>
-          </div>
-        </li>
-      </ul>
-      <p class="no-more">已显示全部评论</p>
+            <div class="comment-info">
+              <p class="name">{{item.name}}</p>
+              <p class="date">{{item.commentDate}}</p>
+              <p class="text">{{item.commentText}}</p>
+            </div>
+            <div class="other-like">
+              <p class="like">
+                <span class="iconfont icon-dianzan"></span>
+                <span>{{item.otherLike}}</span>
+              </p>
+              <span class="iconfont icon-unie644"></span>
+            </div>
+          </li>
+        </ul>
+        <p class="no-more">已显示全部评论</p>
+      </div>
+    </div>
+    <div class="input">
+      <div class="input-group">
+        <input type="text" placeholder="您想说点什么" class="input-text" v-model="commenText">
+        <span class="iconfont icon-xiaolian" id="emoji"></span>
+        <span class="btn" @click="sendMsg()">发表</span>
+      </div>
     </div>
   </div>
 </template>
@@ -137,8 +141,10 @@
   @import '../../assets/css/jquery.sinaEmotion.css';
 
   .news-detail{
-    padding:0.35rem;
     margin-bottom:1.5rem;
+    .news-contaienr{
+      padding:0.35rem;
+    }
     h3{
       font-size: 0.38rem;
       text-align: justify;
@@ -192,9 +198,17 @@
         }
       }
     }
+    .input{
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      height: .9rem;
+      background: #fff;
+      border-top: 1px solid #999;
+    }
     .input-group{
-      margin:0 auto .4rem auto;
-      position: relative;
+      width:90%;
+      margin:0.15rem auto;
       .input-text{
         border: 1px solid #e5e5e5;
         width: 75%;
@@ -302,5 +316,15 @@
       .comment-list .comment-info .text{
         font-size: 0.26rem !important;
       }
+  }
+  #emotions{
+    left: 0;
+    width: 100%;
+    font-size: 12px;
+    background: #fff;
+    position: fixed;
+    border: 1px solid #E8E8E8;
+    z-index: 200;
+    bottom: 90px;
   }
 </style>

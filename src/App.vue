@@ -77,7 +77,7 @@ export default {
 
 <style lang="less">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "MicrosoftYaHei";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;

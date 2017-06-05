@@ -9,7 +9,7 @@
         </div>
       </div>
       <p class="news-img">
-        <img src="../../../static/images/junjian.jpg">
+        <img :src="item.img">
       </p>
     </router-link>
   </div>
@@ -51,6 +51,10 @@
     width: 60%;
     padding-right:0.3rem;
     text-align: justify;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
     strong{
       font-size: 0.3rem;
       font-weight: normal;

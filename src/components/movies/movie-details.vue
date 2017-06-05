@@ -5,18 +5,18 @@
       <p class="main-title">{{movie.title}}</p>
       <p class="sub-title">{{movie.country + " · "+movie.year}}</p>
       <div class="like">
-        <span class="highlight-font">
+        <p class="highlight-font">
           {{movie.wishCount}}
-        </span>
-        <span class="plain-font">
+        </p>
+        <p class="plain-font">
           人喜欢
-        </span>
-        <span class="highlight-font">
+        </p>
+        <p class="highlight-font">
           {{movie.commentCount}}
-        </span>
-        <span class="plain-font">
+        </p>
+        <p class="plain-font">
           条评论
-        </span>
+        </p>
       </div>
     </div>
     <img class="movie-smimg" :src="movie.movieImg"/>
@@ -49,9 +49,11 @@
     <div class="hr"></div>
     <div class="cast">
       <p class="cast-font"> 影人</p>
-      <div class="cast-container" v-for="(item,index) in movie.castsInfo" :key="index">
-        <img class="cast-img" :src="item.img">
-        <p class="cast-name">{{item.name}}</p>
+      <div class="cast-list">
+        <div class="cast-container" v-for="(item,index) in movie.castsInfo" :key="index">
+          <img class="cast-img" :src="item.img">
+          <p class="cast-name">{{item.name}}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -126,102 +128,106 @@
 
   .head-img{
     width:100%;
-    height: 320px;
+    height: 3.2rem;
     -webkit-filter:blur(10px); /*css3模糊属性*/
+    object-fit: cover;
   }
 
   .head-img-hover{
     width: 100%;
-    height: 320px;
+    height: 3.2rem;
     position:absolute;
-    top:90px;
+    top:.9rem;
     left:0;
     display:flex;
     flex-direction: column;
   }
 
   .main-title{
-    font-size: 0.3rem;
+    font-size: 0.32rem;
     color:#fff;
     font-weight:bold;
-    margin-top: 50px;
-    margin-left: 40px;
+    margin-top: .5rem;
+    margin-left: .4rem;
     letter-spacing: 2px;
   }
 
   .sub-title{
     font-size: 0.25rem;
     color:#fff;
-    margin-left: 40px;
-    margin-top: 30px;
+    margin-left: .4rem;
+    margin-top: .3rem;
   }
 
   .like{
     font-size: 0.22rem;
     display:flex;
     flex-direction: row;
-    margin-top: 30px;
-    margin-left: 40px;
+    margin-top: .3rem;
+    margin-left: .3rem;
   }
 
   .highlight-font{
     color: #f21146;
-    font-size:22px;
-    margin-right: 10px;
+    font-size:.23rem;
+    margin-right: .1rem;
   }
 
   .plain-font{
     color: #666;
-    font-size:22px;
-    margin-right: 30px;
+    font-size:.23rem;
+    margin-right: .3rem;
   }
 
 
   .movie-smimg{
-    height:238px;
-    width: 175px;
+    height:2.38rem;
+    width: 1.75rem;
     position: absolute;
-    top:160px;
-    right: 30px;
+    top:2.3rem;
+    right: .3rem;
   }
 
   .summary{
-    margin-left:40px;
-    margin-top: 40px;
+    margin-left:.4rem;
+    margin-top: .7rem;
     color: #777777;
+    font-size: 0.23rem;
   }
 
   .original-title{
     color: #1f3463;
-    font-size: 24px;
+    font-size: 0.25rem;
     font-weight: bold;
-    margin-bottom: 40px;
+    margin-bottom: .4rem;
   }
 
   .flex-row{
     display:flex;
     flex-direction: row;
-    margin-bottom: 10px;
+    margin-bottom: .1rem;
+    color: #666;
   }
 
   .mark{
-    margin-right: 30px;
+    margin-right: .3rem;
     white-space:nowrap;
     color: #999999;
   }
 
   .hr{
-    margin-top:45px;
+    margin-top:.45rem;
     height:1px;
     width: 100%;
     background-color: #d9d9d9;
   }
 
   .synopsis{
-    margin-left:40px;
+    margin-left:.4rem;
     display:flex;
     flex-direction: column;
-    margin-top: 50px;
+    margin-top: .5rem;
+    font-size: 0.23rem;
   }
 
   .synopsis-font{
@@ -229,30 +235,35 @@
   }
 
   .summary-content{
-    margin-top: 20px;
-    margin-right: 40px;
-    line-height:40px;
+    margin-top: .2rem;
+    margin-right: .4rem;
+    line-height:.4rem;
     letter-spacing: 1px;
   }
 
   .cast{
-    margin-left:40px;
+    margin-left:.4rem;
     display:flex;
     flex-direction: column;
     margin-top:50px;
+    font-size: 0.23rem;
+    margin-right: .4rem;
   }
 
   .cast-font{
     color: #999;
-    margin-bottom: 40px;
+    margin-bottom: .4rem;
   }
-
+  .cast-list{
+    width: 100%;
+    display: flex;
+    overflow-x: scroll;
+  }
   .cast-container{
-    display:inline-flex;
     flex-direction: column;
-    margin-bottom: 50px;
-    margin-right: 40px;
-    width: 170px;
+    margin-bottom: .5rem;
+    margin-right: .4rem;
+    width: 1.7rem;
     text-align:center;
     white-space: normal;
   }
@@ -262,8 +273,8 @@
   }
 
   .cast-img{
-    width: 170px;
-    height: 210px;
+    width: 1.7rem;
+    height: 2.1rem;
   }
   .cast-name{
     margin: 10px auto 0;
