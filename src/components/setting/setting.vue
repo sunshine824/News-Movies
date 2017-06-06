@@ -1,10 +1,10 @@
 <template>
   <div class="setting">
     <div class="item-group">
-      <p class="item">
-        <span class="item-text">账号与安全</span>
+      <router-link tag="p" to="/setting/resetPassword" class="item">
+        <span class="item-text">修改密码</span>
         <span class="iconfont icon-zuojiantou-copy"></span>
-      </p>
+      </router-link>
     </div>
     <div class="item-group">
       <p class="item">
@@ -45,7 +45,7 @@
 </script>
 <style lang="less">
   .setting{
-    background: #e7e7e7;
+    background: #f5f5f5;
     padding-top: 0.15rem;
     height: calc(~'100vh - 1rem');
   }
@@ -55,7 +55,7 @@
   .item{
     height: .9rem;
     line-height: .9rem;
-    font-size: .3rem;
+    font-size: .28rem;
     background: #fff;
     color: #333333;
     margin-bottom:1px;

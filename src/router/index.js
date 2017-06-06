@@ -48,6 +48,11 @@ const routes=[
     name: "设置",
     component: resolve => require(["../components/setting/setting.vue"], resolve)
   },
+  {
+    path: '/setting/resetPassword',
+    name: "",
+    component: resolve => require(["../components/setting/resetPassword.vue"], resolve)
+  },
 ]
 
 export default new Router({
