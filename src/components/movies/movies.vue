@@ -7,11 +7,11 @@
     </div>
     <carousel></carousel>
     <div class="container">
-      <movieList v-for="(item,index) in $store.state.movieInfo.moviesList" :item="item" :key="index"></movieList>
+      <movieList v-for="(item,index) in moviesList" :item="item" :key="index"></movieList>
     </div>
   </div>
 </template>
-<script>
+<script type="text/ecmascript-6">
   import typeList from "../public/type.vue";
   import carousel from "../public/carousel.vue";
   import movieList from "./movie-list.vue";
@@ -38,6 +38,11 @@
             console.log(err.message)
           })
     },
+    computed:{
+      moviesList(){
+        return this.$store.state.movieInfo.moviesList
+      }
+    },
     methods:{
       doGetData(res){
         for(var index in res){
@@ -57,13 +62,16 @@
               movieId:subject.id,
               stars: this.$store.getters.convertToStarsArray
             }
+            //console.log(temp)
             movies.push(temp)
           }
+          //console.log(movies)
           this.$store.state.movieInfo.moviesList[this.$store.state.movieInfo.movieList[index]]={
             subjectTitle:this.$store.state.movieInfo.movieListName[index],
             movies:movies
           }
         }
+        console.log(this.$store.state.movieInfo.moviesList)
       }
     }
   }
