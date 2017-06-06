@@ -15,7 +15,7 @@
         </p>
       </article>
       <div class="like-share">
-        <p class="like">
+        <p class="like" @click="addLike()">
           <span class="iconfont icon-dianzan"></span>
           <span class="like-count">{{item.like}}</span>
         </p>
@@ -38,7 +38,7 @@
               <p class="text">{{item.commentText}}</p>
             </div>
             <div class="other-like">
-              <p class="like">
+              <p class="like" @click="addOtherLike(index)">
                 <span class="iconfont icon-dianzan"></span>
                 <span>{{item.otherLike}}</span>
               </p>
@@ -58,7 +58,7 @@
     </div>
   </div>
 </template>
-<script>
+<script type="text/ecmascript-6">
   import Vue from 'vue'  //在子组件中使用 import Vue from 'vue' 这样的写法引入vue后才能使用
 
   export default {
@@ -133,6 +133,14 @@
           + " " + date.getHours() + seperator2 + date.getMinutes()
           + seperator2 + date.getSeconds();
         return currentdate;
+      },
+      //文章点赞
+      addLike(){
+        this.$store.commit('addLike',this.id)
+      },
+      //评论点赞
+      addOtherLike(pid){
+        this.$store.commit('addOtherLike',{id:this.id,pid:pid})
       }
     }
   }

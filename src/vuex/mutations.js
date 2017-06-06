@@ -29,6 +29,30 @@ const mutations={
   //切换loading显示
   toggleShowLoading(state,status){
     state.isLoading=status ? true : false
+  },
+
+  //文章点赞
+  addLike(state,id){
+    var state=state.newInfo.newsMsg[id]
+    if(!state.isLike){
+      state.like+=1;
+      state.isLike=true;
+    }else{
+      state.like-=1;
+      state.isLike=false;
+    }
+  },
+
+  //评论点赞
+  addOtherLike(state,obj){
+    var state=state.newInfo.newsMsg[obj.id].comment[obj.pid]
+    if(!state.isOtherLike){
+      state.otherLike+=1;
+      state.isOtherLike=true
+    }else{
+      state.otherLike-=1;
+      state.isOtherLike=false
+    }
   }
 }
 
