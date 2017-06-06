@@ -58,7 +58,7 @@
     </div>
   </div>
 </template>
-<script>
+<script type="text/ecmascript-6">
   import stars from './star.vue';
   export default {
     components:{
@@ -171,10 +171,11 @@
     color: #f21146;
     font-size:.23rem;
     margin-right: .1rem;
+    font-weight: bold;
   }
 
   .plain-font{
-    color: #666;
+    color: #ddd;
     font-size:.23rem;
     margin-right: .3rem;
   }

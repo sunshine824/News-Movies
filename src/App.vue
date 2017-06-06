@@ -90,7 +90,7 @@ export default {
   width: 100vw;
   height: 1rem;
   background: #fff;
-  border-top:1px solid #666;
+  border-top:1px solid #999;
   z-index:300;
   ul{
     li{
