@@ -44,7 +44,7 @@
   .input-group input{
     height: 0.9rem;
     width: 100%;
-    padding:0 0.4rem;
+    padding:0 1.2rem 0 0.4rem;
     outline: none;
     border: none;
     font-size: 0.28rem;
