@@ -1,10 +1,10 @@
 
 @font-face {font-family: "iconfont";
-  src: url('iconfont.eot?t=1496369151251'); /* IE9*/
-  src: url('iconfont.eot?t=1496369151251#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('iconfont.woff?t=1496369151251') format('woff'), /* chrome, firefox */
-  url('iconfont.ttf?t=1496369151251') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('iconfont.svg?t=1496369151251#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('iconfont.eot?t=1496714839186'); /* IE9*/
+  src: url('iconfont.eot?t=1496714839186#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1496714839186') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1496714839186') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1496714839186#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 .iconfont {
@@ -32,6 +32,8 @@
 .icon-weixin:before { content: "\e6b1"; }
 
 .icon-weixin0:before { content: "\e6b2"; }
+
+.icon-zuojiantou-copy:before { content: "\e60e"; }
 
 .icon-iconloading-copy:before { content: "\e67d"; }
 

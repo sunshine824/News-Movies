@@ -52,7 +52,7 @@ export default {
   //监听$route切换pageName
   watch:{
     "$route" (to, from){
-      console.log(to)
+      //console.log(to)
       const toDepth=to.path.split('/').length
       if(toDepth==2){
         this.$store.state.pageName=to.name;
