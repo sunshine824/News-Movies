@@ -117,10 +117,10 @@
         //手指一动
         dom.addEventListener('touchmove',function(e){
           var scrollTop=dom.scrollTop
-          this.isCanPull=true;
           var endTy= e.changedTouches[0].clientY,
             distance=endTy-startTy;
           if(distance>20 && scrollTop<20){ //下拉
+            this.isCanPull=true;
             dom.style.marginTop=1.8+'rem'
           }
         }.bind(this))

@@ -52,7 +52,6 @@ export default {
   //监听$route切换pageName
   watch:{
     "$route" (to, from){
-      //console.log(to)
       const toDepth=to.path.split('/').length
       if(toDepth==2){
         this.$store.state.pageName=to.name;
@@ -61,6 +60,10 @@ export default {
       }else{
         this.isShowBar=false
         this.isBack=true
+      }
+
+      if(to.path=='/register' || to.path=='/'){
+        this.isShowBar=false
       }
 
       to.path=='/movies/more-movies' ? this.isFlx=true : this.isFlx=false

@@ -95,7 +95,7 @@
       width: 2.54rem;
       height: 1rem;
       margin: 0 auto;
-      padding: 3rem 0 2rem 0;
+      padding: 2rem 0 2rem 0;
       img{
         width: 100%;
       }
@@ -147,7 +147,7 @@
     }
     .enter{
       width: 4rem;
-      margin: 1.4rem auto 0 auto;
+      margin: 1.6rem auto 0 auto;
       .enter-title{
         font-size: 0.24rem;
         color: #fff;
