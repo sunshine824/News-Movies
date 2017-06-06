@@ -1,20 +1,30 @@
 <template>
   <div class="form-group">
     <div class="input-group">
-      <input type="password" placeholder="请输入旧密码">
+      <input v-if="isShow" type="text" placeholder="请输入旧密码" v-model="passwd">
+      <input v-else type="password" placeholder="请输入旧密码" v-model="passwd">
+      <span class="iconfont" :class="[isShow ? 'icon-yanjing' : 'icon-biyan']" @click="isShow=!isShow"></span>
     </div>
     <div class="input-group">
-      <input type="password" placeholder="请输入新密码">
+      <input v-if="isResetShow" type="text" placeholder="请输入新密码" v-model="resetPasswd">
+      <input v-else type="password" placeholder="请输入新密码" v-model="resetPasswd">
+      <span class="iconfont" :class="[isResetShow ? 'icon-yanjing' : 'icon-biyan']" @click="isResetShow=!isResetShow"></span>
     </div>
     <button class="sure">确定</button>
   </div>
 </template>
-<script>
+<script type="text/ecmascript-6">
   export default {
     data(){
       return{
-
+        isResetShow:true,
+        isShow:true,
+        resetPasswd:'',
+        passwd:''
       }
+    },
+    methods:{
+
     }
   }
 </script>
@@ -29,6 +39,7 @@
     width: 100%;
     background: #fff;
     margin-bottom: 0.2rem;
+    position: relative;
   }
   .input-group input{
     height: 0.9rem;
@@ -39,9 +50,12 @@
     font-size: 0.28rem;
     color: #333;
   }
-  .input-group label{
-    font-size: 0.3rem;
-    color: #333;
+  .input-group span{
+    font-size: 0.5rem;
+    color: #9a9a9a;
+    position: absolute;
+    right: .4rem;
+    top: .1rem;
   }
   .sure{
     height: .8rem;
@@ -52,5 +66,6 @@
     border: none;
     outline: none;
     color: #fff;
+    margin-top: .3rem;
   }
 </style>
