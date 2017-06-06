@@ -116,11 +116,11 @@
 
         //手指一动
         dom.addEventListener('touchmove',function(e){
-          var scrollTop=document.querySelector('.grid-container').scrollTop
+          var scrollTop=dom.scrollTop
           this.isCanPull=true;
           var endTy= e.changedTouches[0].clientY,
             distance=endTy-startTy;
-          if(distance>20 && scrollTop<50){ //下拉
+          if(distance>20 && scrollTop<20){ //下拉
             dom.style.marginTop=1.8+'rem'
           }
         }.bind(this))
@@ -128,8 +128,8 @@
         //手指抬起
         dom.addEventListener('touchend',function(e){
           //当前距离顶部距离
-          var scrollTop=document.querySelector('.grid-container').scrollTop
-          if(scrollTop<50){
+          var scrollTop=dom.scrollTop
+          if(scrollTop<20){
             //显示loading
             this.$store.commit('toggleShowLoading',true)
             this.start=0;
