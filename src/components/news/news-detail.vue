@@ -77,7 +77,7 @@
     },
     methods:{
       sendMsg(){
-        if(this.commentText==''){
+        if(this.commenText==''){
           return
         }
         //js异常处理 AnalyticEmotion方法代码有缺陷

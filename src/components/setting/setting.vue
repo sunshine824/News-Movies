@@ -65,9 +65,9 @@
     }
     .iconfont{
       font-size: .3rem;
-      color: #333;
+      color: #666;
       float: right;
-      padding-right: .2rem;
+      padding-right: .4rem;
     }
   }
 </style>
