@@ -7,6 +7,7 @@
     </div>
     <carousel></carousel>
     <div class="container">
+      <p>{{moviesList.comingSoon}}</p>
       <movieList :item="moviesList.inTheaters"></movieList>
       <movieList :item="moviesList.comingSoon"></movieList>
       <movieList :item="moviesList.Top250"></movieList>
@@ -28,16 +29,19 @@
       return{
         movieList:['inTheaters','comingSoon','Top250'],
         movieListName:['正在热映','即将上映','豆瓣TOP250'],
-        moviesList:{}
+        moviesList:{},
+        obj:{'top':{'age':20},'bottom':{'age':30},'left':{'age':50}}
       }
     },
     created(){
-          var p1=this.getAjax('/v2/movie/in_theaters?start=0&count=3')
-          var p2=this.getAjax('/v2/movie/coming_soon?start=0&count=3')
-          var p3=this.getAjax('/v2/movie/top250?start=0&count=3')
+          var self=this
+
+          var p1=self.getAjax('/v2/movie/in_theaters?start=0&count=3')
+          var p2=self.getAjax('/v2/movie/coming_soon?start=0&count=3')
+          var p3=self.getAjax('/v2/movie/top250?start=0&count=3')
 
           Promise.all([p1,p2,p3]).then(res=>{
-            this.doGetData(res)
+            self.doGetData(res,self)
           }).catch(err=>{
             console.log(err.message)
           })
@@ -52,7 +56,7 @@
 
       ...mapActions(['getAjax']),
 
-      doGetData(res){
+      doGetData(res,self){
         for(var index in res){
           var obj=res[index]
           var movies=[];
@@ -60,7 +64,7 @@
             var subject = obj.subjects[idx]
             var title=subject.title;
             //this.$store.commit('changeStars',subject.rating.stars)
-            this.changeStars(subject.rating.stars)
+            self.changeStars(subject.rating.stars)
             if(title.length >= 6){
               title=title.substring(0,6)+"..."
             }
@@ -69,16 +73,18 @@
               average:subject.rating.average,
               coverageUrl:subject.images.large,
               movieId:subject.id,
-              stars: this.$store.getters['convertToStarsArray']
+              stars: self.$store.getters['convertToStarsArray']
             }
-            //console.log(temp)
+
             movies.push(temp)
           }
-          //console.log(movies)
-          this.moviesList[this.movieList[index]]={
-            subjectTitle:this.movieListName[index],
+
+
+          self.moviesList[self.movieList[index]]={
+            subjectTitle:self.movieListName[index],
             movies:movies
           }
+
         }
         console.log(this.moviesList)
       }

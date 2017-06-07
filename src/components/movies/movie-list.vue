@@ -1,7 +1,7 @@
 <template>
   <div class="move-list-container movies-template">
-    <p>{{movieLists}}</p>
-    <div class="inner-container">
+    <p>{{item}}</p>
+    <!--<div class="inner-container">
       <div class="movie-head">
         <p class="slogan">{{item.subjectTitle}}</p>
         <router-link tag="div" :to="{path:'/movies/more-movies',query:{subjectTitle:item.subjectTitle}}" class="more">
@@ -12,7 +12,7 @@
       <div class="movie-container">
         <movieItem v-for="(item,index) in item.movies" :item="item" :key="index"></movieItem>
       </div>
-    </div>
+    </div>-->
   </div>
 </template>
 <script>
