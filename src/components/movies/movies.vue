@@ -7,7 +7,9 @@
     </div>
     <carousel></carousel>
     <div class="container">
-      <movieList v-for="(item,index) in moviesList" :movieLists="item" :key="index"></movieList>
+      <movieList :item="moviesList.inTheaters"></movieList>
+      <movieList :item="moviesList.comingSoon"></movieList>
+      <movieList :item="moviesList.Top250"></movieList>
     </div>
   </div>
 </template>
@@ -24,9 +26,9 @@
     },
     data(){
       return{
-        movieListType:['inTheaters','comingSoon','Top250'],
+        movieList:['inTheaters','comingSoon','Top250'],
         movieListName:['正在热映','即将上映','豆瓣TOP250'],
-        moviesList:[]
+        moviesList:{}
       }
     },
     created(){
@@ -36,7 +38,6 @@
 
           Promise.all([p1,p2,p3]).then(res=>{
             this.doGetData(res)
-            //this.moviesList=res
           }).catch(err=>{
             console.log(err.message)
           })
@@ -52,7 +53,7 @@
       ...mapActions(['getAjax']),
 
       doGetData(res){
-        for(var index=0;index<res.length;index++){
+        for(var index in res){
           var obj=res[index]
           var movies=[];
           for(var idx in obj.subjects){
@@ -71,13 +72,13 @@
               stars: this.$store.getters['convertToStarsArray']
             }
             //console.log(temp)
-            this.moviesList.push(temp)
+            movies.push(temp)
           }
-
-//          this.moviesList[this.movieListType[index]]={
-//            subjectTitle:this.movieListName[index],
-//            movies:movies
-//          }
+          //console.log(movies)
+          this.moviesList[this.movieList[index]]={
+            subjectTitle:this.movieListName[index],
+            movies:movies
+          }
         }
         console.log(this.moviesList)
       }
