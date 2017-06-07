@@ -26,7 +26,7 @@
     },
     data(){
       return{
-        movieList:['inTheaters','comingSoon','Top250'],
+        movieListType:['inTheaters','comingSoon','Top250'],
         movieListName:['正在热映','即将上映','豆瓣TOP250'],
         moviesList:{}
       }
@@ -77,7 +77,7 @@
             movies.push(temp)
           }
 
-          self.moviesList[self.movieList[index]]={
+          self.moviesList[self.movieListType[index]]={
             subjectTitle:self.movieListName[index],
             movies:movies
           }
