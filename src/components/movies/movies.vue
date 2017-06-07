@@ -15,7 +15,7 @@
   import typeList from "../public/type.vue";
   import carousel from "../public/carousel.vue";
   import movieList from "./movie-list.vue";
-
+  import { mapState,mapGetters,mapMutations,mapActions } from 'vuex';
   export default {
     components:{
       typeList,
@@ -28,9 +28,9 @@
       }
     },
     created(){
-          var p1=this.$store.dispatch('getAjax','/v2/movie/in_theaters?start=0&count=3')
-          var p2=this.$store.dispatch('getAjax','/v2/movie/coming_soon?start=0&count=3')
-          var p3=this.$store.dispatch('getAjax','/v2/movie/top250?start=0&count=3')
+          var p1=this.getAjax('/v2/movie/in_theaters?start=0&count=3')
+          var p2=this.getAjax('/v2/movie/coming_soon?start=0&count=3')
+          var p3=this.getAjax('/v2/movie/top250?start=0&count=3')
 
           Promise.all([p1,p2,p3]).then(res=>{
             this.doGetData(res)
@@ -39,11 +39,15 @@
           })
     },
     computed:{
-      moviesList(){
-        return this.$store.state.movieInfo.moviesList
-      }
+      ...mapState({
+        moviesList:state=>state.movieInfo.moviesList
+      })
     },
     methods:{
+      ...mapMutations(['changeStars']),
+
+      ...mapActions(['getAjax']),
+
       doGetData(res){
         for(var index in res){
           var obj=res[index]
@@ -51,7 +55,8 @@
           for(var idx in obj.subjects){
             var subject = obj.subjects[idx]
             var title=subject.title;
-            this.$store.commit('changeStars',subject.rating.stars)
+            //this.$store.commit('changeStars',subject.rating.stars)
+            this.changeStars(subject.rating.stars)
             if(title.length >= 6){
               title=title.substring(0,6)+"..."
             }
@@ -60,7 +65,7 @@
               average:subject.rating.average,
               coverageUrl:subject.images.large,
               movieId:subject.id,
-              stars: this.$store.getters.convertToStarsArray
+              stars: this.$store.getters['convertToStarsArray']
             }
             //console.log(temp)
             movies.push(temp)
