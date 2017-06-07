@@ -32,6 +32,7 @@
         <span class="iconfont icon-zuojiantou-copy"></span>
       </p>
     </div>
+    <button class="drop-out">退出登录</button>
   </div>
 </template>
 <script>
@@ -69,5 +70,18 @@
       float: right;
       padding-right: .4rem;
     }
+  }
+  .drop-out{
+    width: 75%;
+    margin: 1rem auto 0 auto;
+    height: .8rem;
+    line-height: .8rem;
+    background: #ed3f14;
+    font-size: .28rem;
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: .5rem;
+    display: block;
   }
 </style>
