@@ -7,7 +7,6 @@
     </div>
     <carousel></carousel>
     <div class="container">
-      <p>{{moviesList.comingSoon}}</p>
       <movieList :item="moviesList.inTheaters"></movieList>
       <movieList :item="moviesList.comingSoon"></movieList>
       <movieList :item="moviesList.Top250"></movieList>
@@ -29,8 +28,7 @@
       return{
         movieList:['inTheaters','comingSoon','Top250'],
         movieListName:['正在热映','即将上映','豆瓣TOP250'],
-        moviesList:{},
-        obj:{'top':{'age':20},'bottom':{'age':30},'left':{'age':50}}
+        moviesList:{}
       }
     },
     created(){
@@ -79,14 +77,14 @@
             movies.push(temp)
           }
 
-
           self.moviesList[self.movieList[index]]={
             subjectTitle:self.movieListName[index],
             movies:movies
           }
 
+          self.$set(self.moviesList)
+
         }
-        console.log(this.moviesList)
       }
     }
   }

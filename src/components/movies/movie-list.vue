@@ -1,6 +1,5 @@
 <template>
   <div class="move-list-container movies-template">
-    <p>{{item}}</p>
     <!--<div class="inner-container">
       <div class="movie-head">
         <p class="slogan">{{item.subjectTitle}}</p>
