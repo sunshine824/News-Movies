@@ -32,7 +32,7 @@
         <span class="iconfont icon-zuojiantou-copy"></span>
       </p>
     </div>
-    <button class="drop-out">退出登录</button>
+    <router-link tag="button" to="/" class="drop-out">退出登录</router-link>
   </div>
 </template>
 <script>

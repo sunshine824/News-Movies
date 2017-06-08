@@ -87,6 +87,7 @@
 
           self.$set(self.moviesList)
 
+          //view更新完停止loading
           self.$nextTick(()=>{
             self.$store.commit('toggleShowLoading',false)
           })
