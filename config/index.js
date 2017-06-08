@@ -31,6 +31,10 @@ module.exports = {
       '/v2': {
         target: 'https://api.douban.com',
         changeOrigin: true,
+      },
+      '/api': {
+        target: 'http://localhost:8010',
+        changeOrigin: true,
       }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"

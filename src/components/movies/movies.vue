@@ -31,7 +31,10 @@
         moviesList:{}
       }
     },
-    created(){
+  beforeCreate(){
+    this.$store.commit('toggleShowLoading',true)
+  },
+  created(){
           var self=this
 
           var p1=self.getAjax('/v2/movie/in_theaters?start=0&count=3')
@@ -84,6 +87,9 @@
 
           self.$set(self.moviesList)
 
+          self.$nextTick(()=>{
+            self.$store.commit('toggleShowLoading',false)
+          })
         }
       }
     }
