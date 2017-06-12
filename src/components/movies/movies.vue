@@ -7,9 +7,15 @@
     </div>
     <carousel></carousel>
     <div class="container">
-      <movieList :item="moviesList.inTheaters"></movieList>
-      <movieList :item="moviesList.comingSoon"></movieList>
-      <movieList :item="moviesList.Top250"></movieList>
+      <keep-alive>
+        <movieList :item="moviesList.inTheaters"></movieList>
+      </keep-alive>
+      <keep-alive>
+        <movieList :item="moviesList.comingSoon"></movieList>
+      </keep-alive>
+      <keep-alive>
+        <movieList :item="moviesList.Top250"></movieList>
+      </keep-alive>
     </div>
   </div>
 </template>
