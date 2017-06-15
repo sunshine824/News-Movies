@@ -1,4 +1,10 @@
-# chenxin_blog
+VUE全家桶node App 
+===================================  
+
+运行项目
+-----------------------------------  
+ #### 克隆项目到本地
+       git clone https://github.com/sunshine824/WeChat_Reader-Movie.git
 
 > A Vue.js project
 
@@ -26,5 +32,3 @@ npm run e2e
 # run all tests
 npm test
 ```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
