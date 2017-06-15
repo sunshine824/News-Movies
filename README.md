@@ -6,8 +6,8 @@ VUE全家桶node App
  #### 克隆项目到本地
        git clone https://github.com/sunshine824/vue-node.git
  #### 安装依赖
-       npm install
+       npm install
  #### 启动项目
-       npm run dev
+       npm run dev
  #### 启动效果图
-       ![](https://github.com/sunshine824/WeChat_Reader-Movie/blob/master/static/jdfw.gif) 
+       ![](https://github.com/sunshine824/vue-node/blob/master/static/1.gif) 
