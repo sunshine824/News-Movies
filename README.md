@@ -4,31 +4,10 @@ VUE全家桶node App
 运行项目
 -----------------------------------  
  #### 克隆项目到本地
-       git clone https://github.com/sunshine824/WeChat_Reader-Movie.git
-
-> A Vue.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
+       git clone https://github.com/sunshine824/vue-node.git
+ #### 安装依赖
+       npm install
+ #### 启动项目
+       npm run dev
+ #### 启动效果图
+       ![](https://github.com/sunshine824/WeChat_Reader-Movie/blob/master/static/jdfw.gif) 
