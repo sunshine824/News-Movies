@@ -8,7 +8,7 @@ vue+vue-router+vuex+node+mongo
 启动项目
 -----------------------------------  
  #### 克隆项目到本地
-       git clone https://github.com/sunshine824/vue-node.git
+       git clone https://github.com/sunshine824/News-Movies
  #### 安装依赖
        npm install
  #### 启动项目
